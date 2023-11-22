@@ -8,10 +8,10 @@
                 <div class="col">
                     <!-- Page pre-title -->
                     <div class="page-pretitle">
-                        Overview
+
                     </div>
                     <h2 class="page-title">
-                        Dashboard
+                        EMPRESAS
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -32,7 +32,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19"/>
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                             </svg>
-                            Create new report
+                            Crear Nueva Empresa
                         </a>
                         <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal"
                            data-bs-target="#modal-report" aria-label="Create new report">
@@ -70,7 +70,7 @@
                                     entries
                                 </div>
                                 <div class="ms-auto text-muted">
-                                    Search:
+                                    Buscar:
                                     <div class="ms-2 d-inline-block">
                                         <input type="text" class="form-control form-control-sm"
                                                aria-label="Search invoice">
@@ -84,7 +84,7 @@
                                 <tr>
                                     <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox"
                                                            aria-label="Select all invoices"></th>
-                                    <th class="w-1">No.
+                                    <th class="w-1">id.
                                         <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                              class="icon icon-sm text-dark icon-thick" width="24" height="24"
@@ -94,12 +94,12 @@
                                             <polyline points="6 15 12 9 18 15"/>
                                         </svg>
                                     </th>
-                                    <th>Invoice Subject</th>
-                                    <th>Client</th>
-                                    <th>VAT No.</th>
-                                    <th>Created</th>
-                                    <th>Status</th>
-                                    <th>Price</th>
+                                    <th>Razon social</th>
+                                    <th>Ruc</th>
+                                    <th>Dirección</th>
+                                    <th>telefono</th>
+                                    <th>Sede</th>
+                                    <th>Descripcion</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -108,274 +108,41 @@
                                     <td><input class="form-check-input m-0 align-middle" type="checkbox"
                                                aria-label="Select invoice"></td>
                                     <td><span class="text-muted">001401</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">Design Works</a></td>
+                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">Universidad Peruana Union</a></td>
                                     <td>
                                         <span class="flag flag-country-us"></span>
-                                        Carlson Limited
+                                        0204563225
                                     </td>
                                     <td>
-                                        87956621
+                                        Carrtera Panamericana km30
                                     </td>
                                     <td>
-                                        15 Dec 2017
+                                        051892215
                                     </td>
                                     <td>
-                                        <span class="badge bg-success me-1"></span> Paid
+                                        <span class="badge bg-success me-1"></span> Juliaca
                                     </td>
-                                    <td>$887</td>
+                                    <td>requiere estudiante de ingenieria de software para practicas</td>
                                     <td class="text-end">
                             <span class="dropdown">
                               <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                      data-bs-toggle="dropdown">Actions</button>
+                                      data-bs-toggle="dropdown">Especialidad</button>
                               <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#">
-                                  Action
+                                  INFRAESTRUCTURA
                                 </a>
                                 <a class="dropdown-item" href="#">
-                                  Another action
+                                  ASISTENTE DE SOFTWARE
                                 </a>
+                                <a class="dropdown-item" href="#">
+                                  TELECOMUNICACIONES
+                                  </a>
                               </div>
                             </span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                               aria-label="Select invoice"></td>
-                                    <td><span class="text-muted">001402</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">UX Wireframes</a></td>
-                                    <td>
-                                        <span class="flag flag-country-gb"></span>
-                                        Adobe
-                                    </td>
-                                    <td>
-                                        87956421
-                                    </td>
-                                    <td>
-                                        12 Apr 2017
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-warning me-1"></span> Pending
-                                    </td>
-                                    <td>$1200</td>
-                                    <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                      data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Action
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Another action
-                                </a>
-                              </div>
-                            </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                               aria-label="Select invoice"></td>
-                                    <td><span class="text-muted">001403</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">New Dashboard</a></td>
-                                    <td>
-                                        <span class="flag flag-country-de"></span>
-                                        Bluewolf
-                                    </td>
-                                    <td>
-                                        87952621
-                                    </td>
-                                    <td>
-                                        23 Oct 2017
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-warning me-1"></span> Pending
-                                    </td>
-                                    <td>$534</td>
-                                    <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                      data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Action
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Another action
-                                </a>
-                              </div>
-                            </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                               aria-label="Select invoice"></td>
-                                    <td><span class="text-muted">001404</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">Landing Page</a></td>
-                                    <td>
-                                        <span class="flag flag-country-br"></span>
-                                        Salesforce
-                                    </td>
-                                    <td>
-                                        87953421
-                                    </td>
-                                    <td>
-                                        2 Sep 2017
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-secondary me-1"></span> Due in 2 Weeks
-                                    </td>
-                                    <td>$1500</td>
-                                    <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                      data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Action
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Another action
-                                </a>
-                              </div>
-                            </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                               aria-label="Select invoice"></td>
-                                    <td><span class="text-muted">001405</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">Marketing Templates</a>
-                                    </td>
-                                    <td>
-                                        <span class="flag flag-country-pl"></span>
-                                        Printic
-                                    </td>
-                                    <td>
-                                        87956621
-                                    </td>
-                                    <td>
-                                        29 Jan 2018
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-danger me-1"></span> Paid Today
-                                    </td>
-                                    <td>$648</td>
-                                    <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                      data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Action
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Another action
-                                </a>
-                              </div>
-                            </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                               aria-label="Select invoice"></td>
-                                    <td><span class="text-muted">001406</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">Sales Presentation</a>
-                                    </td>
-                                    <td>
-                                        <span class="flag flag-country-br"></span>
-                                        Tabdaq
-                                    </td>
-                                    <td>
-                                        87956621
-                                    </td>
-                                    <td>
-                                        4 Feb 2018
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-secondary me-1"></span> Due in 3 Weeks
-                                    </td>
-                                    <td>$300</td>
-                                    <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                      data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Action
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Another action
-                                </a>
-                              </div>
-                            </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                               aria-label="Select invoice"></td>
-                                    <td><span class="text-muted">001407</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">Logo & Print</a></td>
-                                    <td>
-                                        <span class="flag flag-country-us"></span>
-                                        Apple
-                                    </td>
-                                    <td>
-                                        87956621
-                                    </td>
-                                    <td>
-                                        22 Mar 2018
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-success me-1"></span> Paid Today
-                                    </td>
-                                    <td>$2500</td>
-                                    <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                      data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Action
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Another action
-                                </a>
-                              </div>
-                            </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                               aria-label="Select invoice"></td>
-                                    <td><span class="text-muted">001408</span></td>
-                                    <td><a href="invoice.html" class="text-reset" tabindex="-1">Icons</a></td>
-                                    <td>
-                                        <span class="flag flag-country-pl"></span>
-                                        Tookapic
-                                    </td>
-                                    <td>
-                                        87956621
-                                    </td>
-                                    <td>
-                                        13 May 2018
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-success me-1"></span> Paid Today
-                                    </td>
-                                    <td>$940</td>
-                                    <td class="text-end">
-                            <span class="dropdown">
-                              <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport"
-                                      data-bs-toggle="dropdown">Actions</button>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">
-                                  Action
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                  Another action
-                                </a>
-                              </div>
-                            </span>
+
                                     </td>
                                 </tr>
                                 </tbody>

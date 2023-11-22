@@ -13,7 +13,19 @@ return new class extends Migration
     {
         Schema::create('empresa', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('razon_social');
+            $table->string('direccion');
+            $table->string('ubicacion');
+            $table->integer('ruc');
+            $table->integer('telefono');
+
+
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->timestamps();
+
 
 
         });
