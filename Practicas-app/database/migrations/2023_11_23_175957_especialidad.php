@@ -9,16 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void{
-        Schema::create('especialidads', function (Blueprint $table){
+    public function up(): void
+    {
+        Schema::create('especialidad', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-
+            $table->string('nombre');
+            // Otros campos relacionados con el estudiante
             $table->timestamps();
-
         });
-
-
     }
 
     /**
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+
     }
 };
