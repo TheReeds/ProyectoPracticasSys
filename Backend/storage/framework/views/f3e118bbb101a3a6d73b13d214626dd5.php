@@ -1,2 +1,0 @@
-
-<?php echo $__env->make('tablar::auth.login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Proyecto\Practicas-app\resources\views/auth/login.blade.php ENDPATH**/ ?>

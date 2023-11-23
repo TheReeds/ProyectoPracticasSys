@@ -6,9 +6,6 @@
         "build": "vite build"
     },
     "devDependencies": {
-<<<<<<< Updated upstream
-        "axios": "^1.6.1",
-=======
         "@popperjs/core": "^2.11.8",
         "@tabler/core": "^1.0.0-beta20",
         "@tabler/icons": "^2.32.0",
@@ -21,7 +18,6 @@
         "fslightbox": "^3.4.1",
         "jquery": "3.7.*",
         "jsvectormap": "^1.5.3",
->>>>>>> Stashed changes
         "laravel-vite-plugin": "^0.8.0",
         "vite": "^4.0.0"
     }
