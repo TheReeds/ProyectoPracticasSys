@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+
 });
+<<<<<<< HEAD
 Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,3 +33,8 @@ Auth::routes();
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/tablaejemplo', App\Http\Controllers\TablaEjemploController::class);
+=======
+Route::get('/empresas/create',[EmpresaController::class, 'create'])->name('empresas.create');
+Route::post('/empresas',[EmpresaController::class, 'store'])->name('empresas.store');
+
+>>>>>>> 3568d749fa72ee6763ebc8437b32f57e267dd19e
