@@ -12,4 +12,8 @@ class especialidad extends Model
     public function especialidad(){
         return $this->belongsToMany(Especialidad::class);
     }
+    public function convocatorias()
+    {
+        return $this->hasMany(Convocatoria::class);
+    }
 }
