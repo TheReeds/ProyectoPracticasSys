@@ -9,6 +9,7 @@ import { InterfazComponent } from './componentes/login/interfaz/interfaz.compone
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

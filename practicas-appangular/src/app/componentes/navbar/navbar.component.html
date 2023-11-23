@@ -10,7 +10,7 @@
 
         <!-- Opciones del Menú -->
         <nav class="space-y-2">
-            <a href="#" class="flex items-center px-6 py-3 text-white hover:bg-blue-700">
+            <a href="" class="flex items-center px-6 py-3 cursor-pointer text-white hover:bg-blue-700">
                 <!-- Icono para la primera opción -->
                 <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <!-- Inserta el icono correspondiente -->
@@ -22,7 +22,7 @@
             <!-- Repite este bloque para las otras opciones -->
             <!-- ... -->
 
-            <a (click)="toggleSidebar()" class="flex items-center px-6 py-3 cursor-pointer text-white hover:bg-blue-700">
+            <a (click)="toggleSidebar()" routeLink="" class="flex items-center px-6 py-3 cursor-pointer text-white hover:bg-blue-700">
                 <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
@@ -32,7 +32,7 @@
                 </svg>
             </a>
             <nav *ngIf="sidebarOpen" class="text-center ">
-              <a href="" class="flex items-center pl-12 py-3 text-white hover:bg-blue-700">Gestion Empresa</a>
+              <a routerLink="gestion-empresa" class="flex items-center pl-12 py-3 text-white hover:bg-blue-700 cursor-pointer">Gestion Empresa</a>
               <a href="" class="flex items-center pl-12 py-3 text-white hover:bg-blue-700">Validar</a>
               <a href="" class="flex items-center pl-12 py-3 text-white hover:bg-blue-700">Gestionar especialidad</a>
             </nav>
