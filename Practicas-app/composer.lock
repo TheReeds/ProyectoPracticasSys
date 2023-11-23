@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34d94611b4e3ec49e83958f2ecc0b887",
+    "content-hash": "c8028bff12066a625b772be31733ea58",
     "packages": [
         {
             "name": "brick/math",
@@ -1879,6 +1879,80 @@
                 }
             ],
             "time": "2023-10-17T14:13:20+00:00"
+        },
+        {
+            "name": "livewire/livewire",
+            "version": "v3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/livewire.git",
+                "reference": "95083c0b61c1910ad28c4628e0dfa9c227eb1c41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/95083c0b61c1910ad28c4628e0dfa9c227eb1c41",
+                "reference": "95083c0b61c1910ad28c4628e0dfa9c227eb1c41",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^10.0",
+                "illuminate/support": "^10.0",
+                "illuminate/validation": "^10.0",
+                "league/mime-type-detection": "^1.9",
+                "php": "^8.1",
+                "symfony/http-kernel": "^6.2"
+            },
+            "require-dev": {
+                "calebporzio/sushi": "^2.1",
+                "laravel/framework": "^10.0",
+                "laravel/prompts": "^0.1.6",
+                "mockery/mockery": "^1.3.1",
+                "orchestra/testbench": "^8.0",
+                "orchestra/testbench-dusk": "^8.0",
+                "phpunit/phpunit": "^9.0",
+                "psy/psysh": "@stable"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Livewire\\LivewireServiceProvider"
+                    ],
+                    "aliases": {
+                        "Livewire": "Livewire\\Livewire"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Livewire\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com"
+                }
+            ],
+            "description": "A front-end framework for Laravel.",
+            "support": {
+                "issues": "https://github.com/livewire/livewire/issues",
+                "source": "https://github.com/livewire/livewire/tree/v3.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/livewire",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-11-20T17:05:06+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6076,6 +6150,79 @@
             "time": "2023-11-20T15:56:47+00:00"
         },
         {
+            "name": "laravelcollective/html",
+            "version": "v6.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "64ddfdcaeeb8d332bd98bef442bef81e39c3910b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/64ddfdcaeeb8d332bd98bef442bef81e39c3910b",
+                "reference": "64ddfdcaeeb8d332bd98bef442bef81e39c3910b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/routing": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/session": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/view": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "illuminate/database": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~8.5|^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "support": {
+                "issues": "https://github.com/LaravelCollective/html/issues",
+                "source": "https://github.com/LaravelCollective/html"
+            },
+            "abandoned": "spatie/laravel-html",
+            "time": "2023-04-25T02:46:11+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.6.6",
             "source": {
@@ -6159,6 +6306,68 @@
                 "source": "https://github.com/mockery/mockery"
             },
             "time": "2023-08-09T00:03:52+00:00"
+        },
+        {
+            "name": "mrdebug/crudgen",
+            "version": "1.10.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/misterdebug/crud-generator-laravel.git",
+                "reference": "8db94bd39cc170324742696542106ae2ebbd4fe2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/misterdebug/crud-generator-laravel/zipball/8db94bd39cc170324742696542106ae2ebbd4fe2",
+                "reference": "8db94bd39cc170324742696542106ae2ebbd4fe2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mrdebug\\Crudgen\\CrudgenServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mrdebug\\Crudgen\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Escarem",
+                    "email": "contact@escarem-jonathan.fr"
+                }
+            ],
+            "description": "Create a Laravel Crud in a few seconds",
+            "keywords": [
+                "composer-package",
+                "crud",
+                "crud-generator",
+                "generator",
+                "laravel",
+                "laravel-crud",
+                "laravel-crud-generator",
+                "laravel-package",
+                "laravel10",
+                "laravel8",
+                "laravel9",
+                "rest",
+                "rest-api"
+            ],
+            "support": {
+                "issues": "https://github.com/misterdebug/crud-generator-laravel/issues",
+                "source": "https://github.com/misterdebug/crud-generator-laravel/tree/1.10.6"
+            },
+            "time": "2023-09-14T23:07:35+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6428,16 +6637,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "10.1.8",
+            "version": "10.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "84838eed9ded511f61dc3e8b5944a52d9017b297"
+                "reference": "a56a9ab2f680246adcf3db43f38ddf1765774735"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/84838eed9ded511f61dc3e8b5944a52d9017b297",
-                "reference": "84838eed9ded511f61dc3e8b5944a52d9017b297",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/a56a9ab2f680246adcf3db43f38ddf1765774735",
+                "reference": "a56a9ab2f680246adcf3db43f38ddf1765774735",
                 "shasum": ""
             },
             "require": {
@@ -6494,7 +6703,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.8"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.9"
             },
             "funding": [
                 {
@@ -6502,7 +6711,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-15T13:31:15+00:00"
+            "time": "2023-11-23T12:23:20+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -8141,6 +8350,62 @@
                 }
             ],
             "time": "2023-11-06T10:58:05+00:00"
+        },
+        {
+            "name": "takielias/tablar-crud-generator",
+            "version": "2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/takielias/tablar-crud-generator.git",
+                "reference": "6baba15b286d6c373bcd47e32474ca139c14afc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/takielias/tablar-crud-generator/zipball/6baba15b286d6c373bcd47e32474ca139c14afc9",
+                "reference": "6baba15b286d6c373bcd47e32474ca139c14afc9",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^9.0|^10.0",
+                "laravelcollective/html": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tablar\\CrudGenerator\\CrudServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tablar\\CrudGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taki Elias",
+                    "email": "taki.elias@gmail.com"
+                }
+            ],
+            "description": "Laravel Tablar Crud Generator based on https://github.com/takielias/tablar",
+            "keywords": [
+                "Tablar",
+                "crud",
+                "crud generator",
+                "laravel",
+                "laravel crud generator",
+                "laravel package"
+            ],
+            "support": {
+                "issues": "https://github.com/takielias/tablar-crud-generator/issues",
+                "source": "https://github.com/takielias/tablar-crud-generator/tree/2.2"
+            },
+            "time": "2023-06-04T04:12:54+00:00"
         },
         {
             "name": "theseer/tokenizer",
