@@ -1,6 +1,28 @@
 
 <app-navbar><div navbar-content>
-  <!-- TODO TU CRUD O CONTENIDO AQUI -->
-  <p>Contenido específico</p>
+  <button routerLink="">Nueva Convocatoria</button>
+
+<!-- Tabla para mostrar las convocatorias -->
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Fecha de Inicio</th>
+      <th>Fecha de Fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Itera sobre las convocatorias y muestra la información -->
+    <tr *ngFor="let convocatoria of convocatorias">
+      <td>{{ convocatoria.id }}</td>
+      <td>{{ convocatoria.titulo }}</td>
+      <td>{{ convocatoria.descripcion }}</td>
+      <td>{{ convocatoria.fechaInicio | date }}</td>
+      <td>{{ convocatoria.fechaFin | date }}</td>
+    </tr>
+  </tbody>
+</table>
 </div></app-navbar>
 

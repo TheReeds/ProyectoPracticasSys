@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comvocatorias', function (Blueprint $table) {
+        Schema::create('imagenes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->dateTime('fecha_inicio')->default(now());
-
-            $table->string('area')->nullable();
+            $table->string('nombre');
+            $table->string('ruta');
+            $table->unsignedBigInteger('convocatoria_id');
+            $table->foreign('convocatoria_id')->references('id')->on('convocatorias')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comvocatorias');
+        Schema::dropIfExists('imagenes');
     }
 };

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login/login.component';
 import { RegisterComponent } from './componentes/login/register/register.component';
 import { InterfazComponent } from './componentes/login/interfaz/interfaz.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +20,8 @@ import { InterfazComponent } from './componentes/login/interfaz/interfaz.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('convocatoria', function (Blueprint $table) {
+        Schema::create('convocatorias', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
             $table->string('descripcion');
             $table->unsignedBigInteger('especialidad_id');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
             $table->foreign('especialidad_id')->references('id')->on('especialidad')->onDelete('cascade');
             $table->unsignedBigInteger('empresa_id');
-            $table->foreign('empresa_id')->references('id')->on('empresa')->onDelete('cascade');
+            $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('convocatoria');
+        Schema::dropIfExists('convocatorias');
     }
 };
