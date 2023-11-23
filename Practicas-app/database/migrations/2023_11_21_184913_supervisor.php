@@ -45,6 +45,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('asignaciones');
+
+        // Eliminar tabla 'supervisores'
+        Schema::dropIfExists('supervisores');
+
+        // Eliminar tabla 'estudiantes'
+        Schema::dropIfExists('estudiantes');
     }
 };
