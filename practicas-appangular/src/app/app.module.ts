@@ -7,6 +7,9 @@ import { LoginComponent } from './componentes/login/login/login.component';
 import { RegisterComponent } from './componentes/login/register/register.component';
 import { InterfazComponent } from './componentes/login/interfaz/interfaz.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,

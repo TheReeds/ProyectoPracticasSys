@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('carta_presentacion', function (Blueprint $table) {
             $table->id();
             $table->string('contenido');
-            $table->date('fecha_generacion');
+            $table->date('fecha_generacio');
         });
 
     }
