@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar.component';
-import { ConvocatoriaService } from 'src/app/convocatoria.service';
+import { ConvocatoriaService } from './services/convocatoria.service';
 import { Convocatoria } from '../convocatoria.model';
 
 @Component({
@@ -11,8 +11,18 @@ import { Convocatoria } from '../convocatoria.model';
   templateUrl: './gestionarconvocatoria.component.html',
   styleUrl: './gestionarconvocatoria.component.css'
 })
-export class GestionarconvocatoriaComponent {
-  convocatorias: Convocatoria[] = [];
-  constructor(private convocatoriasService: ConvocatoriaService) { }
+export class GestionarconvocatoriaComponent implements OnInit{
+  data: any[] = [];
+  constructor(private convocatoriaService : ConvocatoriaService) { }
 
+
+  ngOnInit(): void {
+    this.loadConvocatorias();
+  }
+  loadConvocatorias() {
+    this.convocatoriaService.getData().subscribe(response => {
+      this.data = response.data;
+      console.log(this.data);
+    });
+  }
 }
