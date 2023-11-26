@@ -7,6 +7,7 @@ import { LoginComponent } from './componentes/login/login/login.component';
 import { RegisterComponent } from './componentes/login/register/register.component';
 import { InterfazComponent } from './componentes/login/interfaz/interfaz.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
