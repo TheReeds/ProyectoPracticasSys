@@ -1,0 +1,44 @@
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white p-6 rounded shadow-md w-3/5"> <!-- Cambié w-4/5 a w-3/5 -->
+    <h2 class="text-xl font-bold mb-4">Formulario</h2>
+    <form (ngSubmit)="onSubmit(myForm)">
+      <!-- Campos del formulario aquí -->
+      <div class="mb-4">
+        <label for="foto" class="block text-sm font-medium text-gray-700 mb-1">Foto</label>
+        <input type="file" id="foto" name="foto" class="mt-1 p-2 w-full border rounded-md">
+      </div>
+
+      <div class="mb-4">
+        <label for="titulo" class="block text-sm font-medium text-gray-700 mb-1">Titulo</label>
+        <input type="text" id="titulo" name="titulo" class="mt-1 p-2 w-full border rounded-md" [(ngModel)]="formData.titulo" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="descripcion" class="block text-sm font-medium text-gray-700 mb-1">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="3" class="mt-1 p-2 w-full border rounded-md"></textarea>
+      </div>
+
+      <div class="mb-4">
+        <label for="empresa" class="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
+        <input type="text" id="empresa" name="empresa" class="mt-1 p-2 w-full border rounded-md">
+      </div>
+
+      <div class="mb-4">
+        <label for="fechaInicio" class="block text-sm font-medium text-gray-700 mb-1">Fecha de Inicio</label>
+        <input type="date" id="fechaInicio" name="fechaInicio" class="mt-1 p-2 w-full border rounded-md">
+      </div>
+
+      <div class="mb-4">
+        <label for="fechaFin" class="block text-sm font-medium text-gray-700 mb-1">Fecha de Fin</label>
+        <input type="date" id="fechaFin" name="fechaFin" class="mt-1 p-2 w-full border rounded-md">
+      </div>
+
+      <!-- Otros campos... -->
+
+      <div class="flex justify-end">
+        <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" (click)="closeModal()">Cerrar</button>
+        <button type="submit" class="ml-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

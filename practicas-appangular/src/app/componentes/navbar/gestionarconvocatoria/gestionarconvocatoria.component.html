@@ -4,9 +4,10 @@
 <!-- Tabla para mostrar las convocatorias -->
 <div class="m-5">
   <!-- Agregamos el botón "Nueva Convocatoria" -->
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  <button (click)="openModal()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
     Nueva Convocatoria
   </button>
+  <app-crearconvocatoriamodal *ngIf="isModalOpen" (closeModal)="closeModal()"></app-crearconvocatoriamodal>
 
   <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md">
     <table class="w-full border-collapse bg-white text-left text-sm text-gray-500 mt-3">

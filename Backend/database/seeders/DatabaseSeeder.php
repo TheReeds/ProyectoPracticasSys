@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             EmpresaSeeder::class,
             AlumnoSeeder::class,
             SolicitudCartaSeeder::class,
+            PlanPracticasSeeder::class,
         ]);
 
 
