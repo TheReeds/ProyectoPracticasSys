@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ConvocatoriasController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\PlanPracticasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,6 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function
     Route::apiResource('convocatorias', ConvocatoriasController::class);
     Route::post('convocatorias/bulk', ['uses'=>'ConvocatoriasController@bulkStore']);
 });
+
+Route::apiResource('planpracticas',PlanPracticasController::class);
+
