@@ -9,3 +9,23 @@
   border-radius: 8px; /* Opcional: agrega bordes redondeados */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional: agrega una sombra */
 }
+#menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Cambia esto según tu diseño */
+  color: white;
+  padding: 10px;
+  z-index: 1000; /* Asegúrate de que tenga un índice de apilamiento alto para que esté por encima del contenido */
+}
+.scrollbar {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 10px;
+  height: 100px;
+  background-color: #333; /* Cambia esto según tu diseño */
+  opacity: 0.7;
+  border-radius: 5px;
+}
