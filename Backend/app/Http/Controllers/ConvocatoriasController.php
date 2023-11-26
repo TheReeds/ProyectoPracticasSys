@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateConvocatoriasRequest;
 use App\Http\Resources\ConvocatoriaCollection;
 use App\Filters\ConvocatoriaFilter;
 use App\Http\Requests\BulkStoreConvocatoriaRequest;
+use App\Http\Resources\ConvocatoriaResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -43,9 +44,9 @@ class ConvocatoriasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreConvocatoriasRequest $request)
+    public function store(Request $request)
     {
-        //
+        return Convocatorias::create($request->all());
     }
     public function bulkStore(BulkStoreConvocatoriaRequest $request){
         $bulk = collect($request->all())->map(function($arr,$key){
@@ -60,7 +61,7 @@ class ConvocatoriasController extends Controller
      */
     public function show(Convocatorias $convocatorias)
     {
-        //
+        return new ConvocatoriaResource($convocatorias);
     }
 
     /**
@@ -84,6 +85,14 @@ class ConvocatoriasController extends Controller
      */
     public function destroy(Convocatorias $convocatorias)
     {
-        //
+        try {
+            $convocatorias->delete();
+            return response()->json(['message' => 'Convocatoria eliminada exitosamente'], 200);
+        } catch (\Exception $e) {
+            dd($e); // Muestra la excepción para depuración
+            return response()->json(['error' => 'Error al eliminar la convocatoria', 'details' => $e->getMessage()], 500);
+        }
     }
+
+
 }

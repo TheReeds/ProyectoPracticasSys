@@ -25,9 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('alumnos', AlumnoController::class);
 Route::apiResource('solicitudcartas', SolicitudCartaController::class);
 
-
+Route::apiResource('convocatorias', ConvocatoriasController::class);
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function(){
-    Route::apiResource('convocatorias', ConvocatoriasController::class);
+
     Route::apiResource('empresas', EmpresaController::class);
     Route::post('convocatorias/bulk', ['uses'=>'ConvocatoriasController@bulkStore']);
 });

@@ -1,0 +1,15 @@
+<div *ngIf="isOpen2" (click)="cerrarModalEliminar()">
+  <div class="fixed inset-0 bg-black bg-opacity-10 flex items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-md text-center" (click)="$event.stopPropagation()">
+      <!-- Signo de exclamación más grande y rodeado en un círculo con bordes -->
+      <div class="w-20 h-20 flex items-center justify-center mx-auto mb-4 border-4 border-red-500 rounded-full">
+        <div class="text-4xl font-bold text-red-500">!</div>
+      </div>
+      <p class="text-lg font-semibold mb-4">¿Estás seguro de que deseas borrar esta convocatoria?</p>
+      <div class="flex justify-center">
+        <button class="mr-2 px-6 py-2 bg-white-300 text-back border hover:bg-slate-200 font-semibold" (click)="cerrarModalEliminar()">Cancelar</button>
+        <button class="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-700 font-semibold" (click)="confirmarEliminacion.emit()">Sí, estoy seguro</button>
+      </div>
+    </div>
+  </div>
+</div>

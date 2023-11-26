@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Convocatorias extends Model
 {
     use HasFactory;
-    protected $fillable =[]
-    ;
+    protected $fillable =['titulo', 'descripcion', 'fecha_inicio', 'fecha_fin', 'empresa_id'];
+
     /**
      * Get all of the comments for the Empresa
      *
