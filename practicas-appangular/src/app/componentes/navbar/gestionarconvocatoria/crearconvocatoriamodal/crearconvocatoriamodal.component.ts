@@ -18,10 +18,10 @@ export class CrearconvocatoriamodalComponent {
   constructor(private http: HttpClient) {}
 
   isOpen = false;
-  myForm: NgForm;
+
   openModal() {
     this.isOpen = true;
-    this.myForm.resetForm(); // Esto limpia el formulario al abrir el modal
+
   }
 
   closeModal() {
