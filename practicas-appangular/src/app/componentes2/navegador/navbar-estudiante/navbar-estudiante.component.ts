@@ -22,4 +22,10 @@ export class NavbarEstudianteComponent {
   toggleSidebar3() {
     this.sidebarOpen3 = !this.sidebarOpen3;
   }
+  isMenuOpen = true;
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+    // Puedes agregar más lógica aquí, como emitir un evento, cambiar clases, etc.
+  }
 }
