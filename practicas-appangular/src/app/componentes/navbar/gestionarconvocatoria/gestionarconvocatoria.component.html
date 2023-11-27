@@ -9,11 +9,11 @@
   </button>
   <app-crearconvocatoriamodal *ngIf="modalState$"></app-crearconvocatoriamodal>
 
-  <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md">
+  <!--<div class="overflow-hidden rounded-lg border border-gray-200 shadow-md">
     <table class="w-full border-collapse bg-white text-left text-sm text-gray-500 mt-3">
-      <!-- ... Resto del código de la tabla ... -->
+     ... Resto del código de la tabla ...
     </table>
-  </div>
+  </div> -->
 </div>
 
 
@@ -45,7 +45,7 @@
           </th>
           <th class="px-6 py-4">{{ convocatoria.titulo }}</th>
           <th class="px-6 py-4">{{ convocatoria.descripcion }}</th>
-          <th class="px-6 py-4">{{ convocatoria.empresaid }}</th>
+          <th class="px-6 py-4">{{ obtenerNombreEmpresa(convocatoria.empresaid)  }}</th>
           <th class="px-6 py-4">{{ convocatoria.fechainicio }}</th>
           <th class="px-6 py-4">{{ convocatoria.fechafin }}</th>
 
@@ -55,11 +55,11 @@
                 Eliminar
               </a>
 
-              <button class="bg-blue-500 hover:bg-white-700 text-white font-bold py-2 px-4 rounded">
+              <button class="bg-blue-500 hover:bg-white-700 text-white font-bold py-2 px-4 rounded hover:bg-blue-300">
                 Editar
               </button>
             </div>
-            <app-eliminarconvocatoriamodal *ngIf="eliminarModalState$ | async"></app-eliminarconvocatoriamodal>
+            <app-eliminarconvocatoriamodal *ngIf="eliminarModalState$ | async" [id]="idConvocatoriaSeleccionada"></app-eliminarconvocatoriamodal>
           </td>
 
 

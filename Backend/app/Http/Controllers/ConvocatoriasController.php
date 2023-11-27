@@ -83,16 +83,12 @@ class ConvocatoriasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Convocatorias $convocatorias)
+    public function destroy($id)
     {
-        try {
-            $convocatorias->delete();
-            return response()->json(['message' => 'Convocatoria eliminada exitosamente'], 200);
-        } catch (\Exception $e) {
-            dd($e); // Muestra la excepción para depuración
-            return response()->json(['error' => 'Error al eliminar la convocatoria', 'details' => $e->getMessage()], 500);
-        }
-    }
+        $convocatoria = Convocatorias::findOrFail($id);
+        $convocatoria->delete();
 
+        return response()->json(['message' => 'Convocatoria eliminada con éxito'], 204);
+    }
 
 }

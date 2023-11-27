@@ -15,6 +15,7 @@
   })
   export class GestionarconvocatoriaComponent implements OnInit{
     data: any[] = [];
+    empresas: any[] = [];
 
     modalState$ = this.convocatoriaService.modalState$;
     eliminarModalState$ = this.convocatoriaService.eliminarModalState$;
@@ -29,8 +30,13 @@
     }
     loadConvocatorias() {
       this.convocatoriaService.getData().subscribe(response => {
-        this.data = response.data;
-        console.log(this.data);
+        this.data = response.convocatorias;
+      });
+
+      this.convocatoriaService.getEmpresas().subscribe(response => {
+        // Asegúrate de acceder a la propiedad 'data' en la respuesta
+        this.empresas = response.data;
+        console.log(this.empresas);
       });
     }
     abrirModal() {
@@ -50,24 +56,12 @@
     cerrarModalEliminar() {
       this.convocatoriaService.closeEliminarModal();
     }
-
-    borrarConvocatoria(idConvocatoria: number) {
-      this.convocatoriaService.deleteConvocatoria(idConvocatoria).subscribe(
-        () => {
-          console.log('Convocatoria eliminada exitosamente');
-          // Puedes realizar acciones adicionales después de la eliminación si es necesario
-        },
-        (error) => {
-          console.error('Error al eliminar la convocatoria', error);
-          // Manejo de errores si es necesario
-        }
-      );
+    obtenerNombreEmpresa(empresaid: number): string {
+      const empresa = this.empresas.find(empresa => empresa.id === empresaid);
+      return empresa ? empresa.razonsocial : 'Sin empresa';
     }
-
-    // Método para manejar el evento de confirmación de eliminación
-    onConfirmarEliminacion(idConvocatoria: number) {
-      this.borrarConvocatoria(idConvocatoria);
+    onGuardarCompletado() {
+      // Lógica para recargar la lista de convocatorias
+      this.loadConvocatorias();
     }
-
-
   }

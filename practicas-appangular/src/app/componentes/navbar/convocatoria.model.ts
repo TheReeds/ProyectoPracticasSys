@@ -5,6 +5,7 @@ export interface Convocatoria {
   fechaInicio: Date;
   fechaFin: Date;
   empresa: Empresa;
+  empresas: Empresa[];
   especialidad: Especialidad;
   imagenes: Imagen[];
 }
