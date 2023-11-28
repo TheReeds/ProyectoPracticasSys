@@ -9,4 +9,8 @@ class Especialidad extends Model
 {
     use HasFactory;
 
+    public function empresas(){
+        return $this->belongsToMany(Empresa::class);
+    }
+
 }
