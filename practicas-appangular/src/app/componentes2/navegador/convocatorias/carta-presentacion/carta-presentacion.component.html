@@ -2,177 +2,175 @@
   <div navbarestudiante-content>
 
     <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 
-    <head>
-      <meta charset="UTF-8">
-      <title>Gestionar Carta de Presentación</title>
-      <!-- Enlace a Tailwind CSS (puedes cambiar a tu versión específica) -->
-      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-      <!-- Enlace a SweetAlert2 -->
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-      <style>
-        body {
-          background: linear-gradient(to right, #3c364d, #17172b);
-          color: #ffffff;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-        }
+<head>
+  <meta charset="UTF-8">
+  <title>Gestionar Carta de Presentación</title>
+  <!-- Enlace a Tailwind CSS (puedes cambiar a tu versión específica) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Enlace a SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #3c364d, #17172b);
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        .container {
-          width: 80%;
-          text-align: center;
-        }
+    .container {
+      width: 80%;
+      text-align: center;
+    }
 
-        .card {
-          background-color: #1d1b1b;
-          border: none;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-          border-radius: 10px;
-        }
+    .card {
+      background-color: #1d1b1b;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
 
-        .card-header {
-          background-color: #2791ce;
-          color: #1a1a1a;
-          border-bottom: none;
-          font-size: 36px;
-          text-transform: uppercase;
-          padding: 20px;
-          text-align: center;
-          border-radius: 10px 10px 0 0;
-        }
+    .card-header {
+      background-color: #2791ce;
+      color: #1a1a1a;
+      border-bottom: none;
+      font-size: 36px;
+      text-transform: uppercase;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+    }
 
-        .card-body {
-          padding: 50px;
-          text-align: center;
-        }
+    .card-body {
+      padding: 50px;
+      text-align: center;
+    }
 
-        .card-text {
-          color: #ffffff;
-        }
+    .card-text {
+      color: #ffffff;
+    }
 
-        .image-container {
-          display: flex;
-          justify-content: space-between;
-          margin-right: -10px; /* Para compensar el margen derecho del último elemento */
-        }
+    .image-container {
+      display: flex;
+      justify-content: space-between;
+      margin-right: -10px; /* Para compensar el margen derecho del último elemento */
+    }
 
-        .image-container img {
-          width: 200px;
-          height: auto;
-          margin-right: 10px;
-        }
+    .image-container img {
+      width: 200px;
+      height: auto;
+      margin-right: 10px;
+    }
 
-        .btn-group {
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          margin-top: 20px;
-        }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
 
-        .btn {
-          font-size: 18px;
-          padding: 15px 30px;
-          transition: background-color 0.3s ease;
-          border-radius: 20px;
-        }
+    .btn {
+      font-size: 18px;
+      padding: 15px 30px;
+      transition: background-color 0.3s ease;
+      border-radius: 20px;
+    }
 
-        .btn-primary {
-          background-color: #8100cc;
-          border: none;
-        }
+    .btn-primary {
+      background-color: #8100cc;
+      border: none;
+    }
 
-        .btn-primaryd {
-          background-color: #14d86c;
-          border: none;
-        }
+    .btn-primaryd {
+      background-color: #14d86c;
+      border: none;
+    }
 
-        .btn-secondary {
-          background-color: #ffcc00;
-          border: none;
-        }
+    .btn-secondary {
+      background-color: #ffcc00;
+      border: none;
+    }
 
-        .btn-info {
-          background-color: #0099ff;
-          border: none;
-        }
+    .btn-info {
+      background-color: #0099ff;
+      border: none;
+    }
 
-        .btn-outline-primary {
-          color: #00cc99;
-          border: 2px solid #00cc99;
-        }
+    .btn-outline-primary {
+      color: #00cc99;
+      border: 2px solid #00cc99;
+    }
 
-        .btn:hover {
-          background-color: #1a1a1a;
-        }
+    .btn:hover {
+      background-color: #1a1a1a;
+    }
 
-        /* Estilo para el formulario (inicialmente oculto) */
-        #formulario {
-          display: none;
-          margin-top: 20px;
-          background-color: #333;
-          padding: 20px;
-          border-radius: 10px;
-        }
-      </style>
-    </head>
+    /* Estilo para el formulario (inicialmente oculto) */
+    #formulario {
+      display: none;
+      margin-top: 20px;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
 
-    <body>
-      <div class="container">
-        <div class="card">
-          <div class="card-header">
-            <h5 class="card-title">Gestionar Carta de Presentación</h5>
-          </div>
-          <div class="card-body">
-            <div class="card-text image-container">
-              <img src="https://www.elitelaboral.com/site/wp-content/uploads/2021/05/VACANTE-PRACTICANTE-DE-SISTEMAS.jpg" alt="La imagen es gozu">
-              <img src="https://4.bp.blogspot.com/-6IpI4w1KTSs/WdVj_wIJ4FI/AAAAAAAAucs/OZKrciWQHXoeZvccbhZGJlyNlIFSayc7QCLcBGAs/s640/22195463_2026321924272469_7381899950986369031_n.jpg" alt="La imagen es gozu">
-              <img src="https://clasificados.debate.com.mx/__export/1585349974772/sites/clasificados/img/2020/03/27/Guest_20200327_155933308_995611.jpg_627809440.jpg" alt="La imagen es gozu">
-            </div>
-            <p class="card-text">
-              Obtén tu carta de presentación para prácticas pre profesionales en nuestra plataforma. Solicítala fácilmente y recibe una versión personalizada. ¡Comienza tu camino hacia el éxito profesional ahora mismo!🤓😈</p>
-            <div class="btn-group">
-              <button class="btn btn-primaryd" onclick="mostrarFormulario()">Generar Carta de Presentación</button>
-              <button class="btn btn-secondary">Descargar</button>
-              <button class="btn btn-info">Adjuntar Carta</button>
-            </div>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-outline-primary">Volver</button>
-            <button class="btn btn-primary ml-4">Registrar Nueva Carta</button>
-          </div>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Gestionar Carta de Presentación</h5>
+      </div>
+      <div class="card-body">
+        <div class="card-text image-container">
+          <img src="https://www.elitelaboral.com/site/wp-content/uploads/2021/05/VACANTE-PRACTICANTE-DE-SISTEMAS.jpg" alt="La imagen es gozu">
+          <img src="https://4.bp.blogspot.com/-6IpI4w1KTSs/WdVj_wIJ4FI/AAAAAAAAucs/OZKrciWQHXoeZvccbhZGJlyNlIFSayc7QCLcBGAs/s640/22195463_2026321924272469_7381899950986369031_n.jpg" alt="La imagen es gozu">
+          <img src="https://clasificados.debate.com.mx/__export/1585349974772/sites/clasificados/img/2020/03/27/Guest_20200327_155933308_995611.jpg_627809440.jpg" alt="La imagen es gozu">
         </div>
-
-        <!-- Formulario oculto -->
-        <div id="formulario">
-          <h2>Llenar Formulario</h2>
-          <!-- Aquí puedes agregar los campos del formulario -->
+        <p class="card-text">
+          Obtén tu carta de presentación para prácticas pre profesionales en nuestra plataforma. Solicítala fácilmente y recibe una versión personalizada. ¡Comienza tu camino hacia el éxito profesional ahora mismo!🤓😈</p>
+        <div class="btn-group">
+          <button class="btn btn-primaryd" (click)  ="mostrarFormulario()">Generar Carta de Presentación</button>
+          <button class="btn btn-secondary">Descargar</button>
+          <button class="btn btn-info">Adjuntar Carta</button>
+          <button class="btn btn-primary ml-4">Registrar Nueva Carta</button>
         </div>
       </div>
+    </div>
 
-      <!-- Script para Bootstrap JS (opcional si necesitas funcionalidades de Bootstrap) -->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Formulario oculto -->
+    <div id="formulario">
+      <h2>Llenar Formulario</h2>
+      <!-- Aquí puedes agregar los campos del formulario -->
+    </div>
+  </div>
 
-      <!-- Script para mostrar/ocultar el formulario y SweetAlert2 -->
-      <script>
-        function mostrarFormulario() {
-          // Muestra el formulario como una notificación utilizando SweetAlert2
-          Swal.fire({
-            title: 'Llenar Formulario',
-            html: document.getElementById('formulario').innerHTML,
-            showCloseButton: true,
-            showConfirmButton: false,
-          });
-        }
-      </script>
-    </body>
+  <!-- Script para Bootstrap JS (opcional si necesitas funcionalidades de Bootstrap) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    </html>
+  <!-- Script para mostrar/ocultar el formulario y SweetAlert2 -->
+  <script>
+    function mostrarFormulario() {
+      // Muestra el formulario como una notificación utilizando SweetAlert2
+      Swal.fire({
+        title: 'Llenar Formulario',
+        html: document.getElementById('formulario').innerHTML,
+        showCloseButton: true,
+        showConfirmButton: false,
+      });
+    }
+  </script>
+</body>
+
+</html>
+
 
   </div>
 </app-navbar-estudiante>
