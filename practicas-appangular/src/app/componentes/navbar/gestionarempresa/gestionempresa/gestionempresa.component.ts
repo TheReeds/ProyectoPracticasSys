@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Component} from '@angular/core';
 import { NavbarComponent } from '../../navbar.component';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 
+
+/**
+ * @title Basic use of `<table mat-table>`
+ */
 @Component({
   selector: 'app-gestionempresa',
   standalone: true,
@@ -10,6 +13,6 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   templateUrl: './gestionempresa.component.html',
   styleUrl: './gestionempresa.component.css'
 })
-export class GestionempresaComponent {
+export class GestionempresaComponent{
 
 }
