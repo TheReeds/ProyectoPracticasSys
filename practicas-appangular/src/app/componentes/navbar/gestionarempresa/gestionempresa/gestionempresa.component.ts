@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {Component} from '@angular/core';
 import { NavbarComponent } from '../../navbar.component';
+import { Route, Routes } from '@angular/router';
 
 
 /**
@@ -16,3 +17,5 @@ import { NavbarComponent } from '../../navbar.component';
 export class GestionempresaComponent{
 
 }
+
+
