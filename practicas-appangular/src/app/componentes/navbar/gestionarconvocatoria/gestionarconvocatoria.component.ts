@@ -16,6 +16,7 @@
   export class GestionarconvocatoriaComponent implements OnInit{
     data: any[] = [];
     empresas: any[] = [];
+    apiUrlImagenes: string = 'http://127.0.0.1:8000';
 
     modalState$ = this.convocatoriaService.modalState$;
     eliminarModalState$ = this.convocatoriaService.eliminarModalState$;
@@ -33,6 +34,7 @@
         this.data = response.convocatorias;
       });
 
+      // METODO AGARRAR EMPRESA
       this.convocatoriaService.getEmpresas().subscribe(response => {
         // Asegúrate de acceder a la propiedad 'data' en la respuesta
         this.empresas = response.data;
@@ -64,4 +66,8 @@
       // Lógica para recargar la lista de convocatorias
       this.loadConvocatorias();
     }
+
+
+
+
   }
