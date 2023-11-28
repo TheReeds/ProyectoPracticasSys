@@ -22,6 +22,7 @@ class ConvocatoriaResource extends JsonResource
             'fechafin' => $this->fecha_fin,
             'empresaid' => $this->empresa_id,
             'createdat' => $this->created_at,
+            'imagen' => $this->imagen,
         ];
     }
 }
