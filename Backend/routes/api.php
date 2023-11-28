@@ -35,3 +35,4 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function
 
 Route::apiResource('planpracticas',PlanPracticasController::class);
 
+

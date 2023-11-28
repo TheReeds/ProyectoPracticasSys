@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('convocatorias', function (Blueprint $table) {
+        Schema::create('empresa_especialidad', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo');
-            $table->string('descripcion');
-            //$table->unsignedBigInteger('especialidad_id');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
-            //$table->foreign('especialidad_id')->references('id')->on('especialidad')->onDelete('cascade');
             $table->unsignedBigInteger('empresa_id');
+            $table->unsignedBigInteger('especialidades_id');
             $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
-            $table->string('imagen')->nullable();
+            $table->foreign('especialidades_id')->references('id')->on('especialidades')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('convocatorias');
+        Schema::dropIfExists('empresa_especialidad');
     }
 };

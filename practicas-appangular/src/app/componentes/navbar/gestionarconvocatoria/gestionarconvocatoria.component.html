@@ -36,11 +36,12 @@
           <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
             <div class="relative h-10 w-10">
               <img
-                class="h-full w-full rounded-full object-cover object-center"
-                src="https://cdn.www.gob.pe/uploads/document/file/1431540/standard_IMG_1141.JPG"
+                *ngIf="convocatoria.imagen"
+                class="h-full w-full rounded-full object-cover object-center cursor-pointer"
+                [src]="apiUrlImagenes + convocatoria.imagen"
                 alt=""
               />
-
+              <span *ngIf="!convocatoria.imagen">No hay foto</span> <!-- Mensaje si no hay foto -->
             </div>
           </th>
           <th class="px-6 py-4">{{ convocatoria.titulo }}</th>
