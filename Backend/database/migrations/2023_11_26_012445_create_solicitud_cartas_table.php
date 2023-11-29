@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('solicitud_cartas', function (Blueprint $table) {
             $table->id();
-            $table->string('estudiante');
+            $table->unsignedBigInteger('estudiante_id');
+            $table->foreign('estudiante_id')->references('id')->on('alumnos')->onDelete('cascade');
             $table->string('estado');
+            $table->text('comentarios')->nullable();
             $table->unsignedBigInteger('cartapdfs_id');
             $table->foreign('cartapdfs_id')->references('id')->on('cartapdfs')->onDelete('cascade');
+            $table->unsignedBigInteger('empresa_id')->nullable();
+            $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,5 +31,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('solicitud_cartas');
+
     }
 };

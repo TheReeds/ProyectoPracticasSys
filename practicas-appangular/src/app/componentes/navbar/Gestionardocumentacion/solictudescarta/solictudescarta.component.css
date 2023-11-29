@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5; /* Fondo más claro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333; /* Texto más oscuro */
+}
+
+.container {
+  margin-top: 20px; /* Espacio superior para separar del borde superior */
+}
+
+.card {
+  background: #fff; /* Fondo blanco */
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #007bff; /* Azul claro */
+  color: #fff;
+  border-bottom: none;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 15px;
+}
+
+.search-bar {
+  margin: 15px;
+}
+
+.student-list {
+  margin: 15px;
+}
+
+.student-list th,
+.student-list td {
+  text-align: center;
+  padding: 15px;
+  color: #333;
+}
+
+.details-icon,
+.check-icon,
+.delete-icon {
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 20px;
+  color: #007bff; /* Azul claro */
+}
+
+.details-icon:hover,
+.check-icon:hover,
+.delete-icon:hover {
+  color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}

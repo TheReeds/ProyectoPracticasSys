@@ -12,4 +12,9 @@ class SolicitudCarta extends Model
     protected $fillable = ['estudiante', 'estado', 'cartapdfs_id'];
 
     protected $factory = SolicitudCartaFactory::class;
+
+    public function empresa()
+{
+    return $this->belongsTo(Empresa::class, 'empresa_id');
+}
 }

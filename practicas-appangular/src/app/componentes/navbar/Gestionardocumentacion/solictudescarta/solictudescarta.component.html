@@ -1,131 +1,79 @@
 
 <app-navbar><div navbar-content>
   <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Gestión de Solicitud de Carta</title>
-  <!-- Link a Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Link a FontAwesome para los iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #ff6b6b, #6b47ff);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #ffffff;
-    }
+    <html lang="en">
 
-    .container {
-      margin-top: 0px;
-    }
+    <head>
+      <meta charset="UTF-8">
+      <title>Gestión de Solicitud de Carta</title>
+      <!-- Link a Bootstrap CSS -->
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Link a FontAwesome para los iconos -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    </head>
 
-    .card {
-      background: linear-gradient(to right, #38495a, #283442);
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-header {
-      background-color: #ff8c69;
-      color: #ffffff;
-      border-bottom: none;
-      font-size: 24px;
-      text-transform: uppercase;
-      padding: 15px;
-    }
-
-    .search-bar {
-      margin: 15px;
-    }
-
-    .student-list {
-      margin: 15px;
-    }
-
-    .student-list th, .student-list td {
-      text-align: center;
-      padding: 15px;
-      color: #ffffff;
-
-    }
-
-    .details-icon,
-    .check-icon,
-    .delete-icon {
-      cursor: pointer;
-      margin: 0 10px;
-      font-size: 20px;
-      color: #ff8c69;
-    }
-
-    .details-icon:hover,
-    .check-icon:hover,
-    .delete-icon:hover {
-      color: #ffffff;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="card">
-      <div class="card-header">
-        <h2>Gestión de Solicitud de Carta</h2>
-      </div>
-      <div class="search-bar">
-        <!-- Barra de búsqueda -->
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Buscar...">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">Buscar</button>
+    <body>
+      <div class="container">
+        <div class="card">
+          <div class="card-header">
+            <h2>Gestión de Solicitud de Carta</h2>
+          </div>
+          <div class="search-bar">
+            <!-- Barra de búsqueda -->
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Buscar...">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Buscar</button>
+              </div>
+            </div>
+          </div>
+          <div class="student-list">
+            <!-- Lista de estudiantes -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Estudiante Nombre</th>
+                  <th>Empresa</th>
+                  <th>Especialidad</th>
+                  <th>Comentario</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Estudiante 1</td>
+                  <td>Empresa A</td>
+                  <td>Especialidad X</td>
+                  <td>Algun comentario aquí</td>
+                  <td>
+                    <i class="far fa-eye details-icon" title="Ver Detalles"></i>
+                    <i class="fas fa-check-circle check-icon" title="Marcar"></i>
+                    <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Estudiante 2</td>
+                  <td>Empresa B</td>
+                  <td>Especialidad Y</td>
+                  <td>Otro comentario aquí</td>
+                  <td>
+                    <i class="far fa-eye details-icon" title="Ver Detalles"></i>
+                    <i class="fas fa-check-circle check-icon" title="Marcar"></i>
+                    <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
+                  </td>
+                </tr>
+                <!-- Puedes agregar más filas según sea necesario -->
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-      <div class="student-list">
-        <!-- Lista de estudiantes -->
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Estudiante Nombre</th>
-              <th>Empresa</th>
-              <th>Especialidad</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Estudiante 1</td>
-              <td>Empresa A</td>
-              <td>Especialidad X</td>
-              <td>
-                <i class="fas fa-info-circle details-icon" title="Ver Detalles"></i>
-                <i class="fas fa-check-circle check-icon" title="Marcar"></i>
-                <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
-              </td>
-            </tr>
-            <tr>
-              <td>Estudiante 2</td>
-              <td>Empresa B</td>
-              <td>Especialidad Y</td>
-              <td>
-                <i class="fas fa-info-circle details-icon" title="Ver Detalles"></i>
-                <i class="fas fa-check-circle check-icon" title="Marcar"></i>
-                <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
-              </td>
-            </tr>
-            <!-- Puedes agregar más filas según sea necesario -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
 
-  <!-- Script para Bootstrap JS (opcional si necesitas funcionalidades de Bootstrap) -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+      <!-- Script para Bootstrap JS (opcional si necesitas funcionalidades de Bootstrap) -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+
+    </html>
 
 </div></app-navbar>
 
