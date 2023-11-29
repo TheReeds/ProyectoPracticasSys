@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('razon_social');
             $table->string('direccion');
-            $table->string('ubicacion');
             $table->string('email');
             $table->bigInteger('ruc');
             $table->string('telefono');
