@@ -9,6 +9,7 @@ import { NavbarEstudianteComponent } from '../../navbar-estudiante/navbar-estudi
   templateUrl: './ver-convocatorias.component.html',
   styleUrl: './ver-convocatorias.component.css'
 })
+
 export class VerConvocatoriasComponent {
 
 }
