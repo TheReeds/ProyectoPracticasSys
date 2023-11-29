@@ -11,6 +11,7 @@ use App\Http\Requests\BulkStoreConvocatoriaRequest;
 use App\Http\Resources\ConvocatoriaResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 class ConvocatoriasController extends Controller
 {
@@ -46,8 +47,33 @@ class ConvocatoriasController extends Controller
      */
     public function store(Request $request)
     {
-        return Convocatorias::create($request->all());
+        $request->validate([
+            'titulo' => 'required',
+            'descripcion' => 'required',
+            'fecha_inicio' => 'required|date',
+            'fecha_fin' => 'required|date',
+            'empresa_id' => 'required|exists:empresas,id',
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validación para la imagen
+        ]);
+
+        $convocatoria = new Convocatorias([
+            'titulo' => $request->input('titulo'),
+            'descripcion' => $request->input('descripcion'),
+            'fecha_inicio' => $request->input('fecha_inicio'),
+            'fecha_fin' => $request->input('fecha_fin'),
+            'empresa_id' => $request->input('empresa_id'),
+        ]);
+
+        if ($request->hasFile('imagen')) {
+            $imagenPath = $request->file('imagen')->store('public/convocatorias');
+            $convocatoria->imagen = Storage::url($imagenPath);
+        }
+
+        $convocatoria->save();
+
+        return response()->json(['message' => 'Convocatoria creada con éxito', 'convocatoria' => $convocatoria], 201);
     }
+
     public function bulkStore(BulkStoreConvocatoriaRequest $request){
         $bulk = collect($request->all())->map(function($arr,$key){
             return Arr::except($arr,['empresaid','fechainicio','fechafin']);
@@ -59,9 +85,15 @@ class ConvocatoriasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Convocatorias $convocatorias)
+    public function show($id)
     {
-        return new ConvocatoriaResource($convocatorias);
+        $convocatoria = Convocatorias::find($id);
+
+        if (!$convocatoria) {
+            return response()->json(['message' => 'Convocatoria no encontrada'], 404);
+        }
+
+        return response()->json(['convocatoria' => $convocatoria], 200);
     }
 
     /**
@@ -83,16 +115,12 @@ class ConvocatoriasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Convocatorias $convocatorias)
+    public function destroy($id)
     {
-        try {
-            $convocatorias->delete();
-            return response()->json(['message' => 'Convocatoria eliminada exitosamente'], 200);
-        } catch (\Exception $e) {
-            dd($e); // Muestra la excepción para depuración
-            return response()->json(['error' => 'Error al eliminar la convocatoria', 'details' => $e->getMessage()], 500);
-        }
-    }
+        $convocatoria = Convocatorias::findOrFail($id);
+        $convocatoria->delete();
 
+        return response()->json(['message' => 'Convocatoria eliminada con éxito'], 204);
+    }
 
 }

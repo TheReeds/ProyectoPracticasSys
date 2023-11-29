@@ -12,39 +12,71 @@ class SolicitudCartaController extends Controller
 {
     public function index()
     {
-        return SolicitudCarta::all();
+        $solicitudesCartas = SolicitudCarta::all();
+        return response()->json($solicitudesCartas, 200);
     }
 
+    // Obtener una solicitud de carta por ID
     public function show($id)
     {
-        return SolicitudCarta::findOrFail($id);
+        $solicitudCarta = SolicitudCarta::find($id);
+
+        if (!$solicitudCarta) {
+            return response()->json(['error' => 'Solicitud de carta no encontrada'], 404);
+        }
+
+        return response()->json($solicitudCarta, 200);
     }
 
+    // Crear una nueva solicitud de carta
     public function store(Request $request)
-    {
-        $data = $request->validate([
-            'estudiante' => 'required|string',
-            'estado' => 'string', // Ajusta esto según tus necesidades
-            'cartapdfs_id' => 'required|integer', // Ajusta esto según tus necesidades
-        ], [
-            'estudiante.required' => 'El campo estudiante es obligatorio.',
-            'cartapdfs_id.required' => 'El campo cartapdfs id es obligatorio.',
-        ]);
+{
+    $request->validate([
+        'estudiante_id' => 'required|exists:alumnos,id',
+        'estado' => 'required',
+        'comentarios' => 'nullable',
+        'cartapdfs_id' => 'required|exists:cartapdfs,id',
+        'empresa_id' => 'nullable|exists:empresas,id',
+    ]);
 
-        return SolicitudCarta::create($data);
-    }
+    $solicitud = SolicitudCarta::create($request->all());
 
+    return response()->json(['message' => 'Solicitud creada correctamente', 'data' => $solicitud], 201);
+}
+
+    // Actualizar una solicitud de carta por ID
     public function update(Request $request, $id)
     {
-        $solicitudCarta = SolicitudCarta::findOrFail($id);
+        $solicitudCarta = SolicitudCarta::find($id);
+
+        if (!$solicitudCarta) {
+            return response()->json(['error' => 'Solicitud de carta no encontrada'], 404);
+        }
+
+        $request->validate([
+            'estudiante_id' => 'required|exists:alumnos,id',
+            'estado' => 'required',
+            'comentarios' => 'string',
+            'cartapdfs_id' => 'required|exists:cartapdfs,id',
+            'empresa_id' => 'required|exists:empresas,id',
+        ]);
+
         $solicitudCarta->update($request->all());
-        return $solicitudCarta;
+
+        return response()->json($solicitudCarta, 200);
     }
 
+    // Eliminar una solicitud de carta por ID
     public function destroy($id)
     {
-        $solicitudCarta = SolicitudCarta::findOrFail($id);
+        $solicitudCarta = SolicitudCarta::find($id);
+
+        if (!$solicitudCarta) {
+            return response()->json(['error' => 'Solicitud de carta no encontrada'], 404);
+        }
+
         $solicitudCarta->delete();
-        return 204;
+
+        return response()->json(['message' => 'Solicitud de carta eliminada correctamente'], 200);
     }
 }

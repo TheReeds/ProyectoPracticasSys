@@ -11,7 +11,7 @@ describe('GestionarconvocatoriaComponent', () => {
       imports: [GestionarconvocatoriaComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(GestionarconvocatoriaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

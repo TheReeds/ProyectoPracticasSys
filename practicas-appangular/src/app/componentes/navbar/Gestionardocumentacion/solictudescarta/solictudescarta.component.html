@@ -1,118 +1,81 @@
 
 <app-navbar><div navbar-content>
-  <!-- TODO TU CRUD O CONTENIDO AQUI -->
   <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Gestionar Carta de Presentación</title>
-  <!-- Link a Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(to right, #ff8c69, #ff3e03);
-      color: #ffffff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    <html lang="en">
 
-    .container {
-      width: 80%;
-      text-align: center;
-    }
+    <head>
+      <meta charset="UTF-8">
+      <title>Gestión de Solicitud de Carta</title>
+      <!-- Link a Bootstrap CSS -->
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Link a FontAwesome para los iconos -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    </head>
 
-    .card {
-      background-color: #121212;
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
+    <body>
+      <div class="container">
+        <div class="card">
+          <div class="card-header">
+            <h2>Gestión de Solicitud de Carta</h2>
+          </div>
+          <div class="search-bar">
+            <!-- Barra de búsqueda -->
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Buscar...">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Buscar</button>
+              </div>
+            </div>
+          </div>
+          <div class="student-list">
+            <!-- Lista de estudiantes -->
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Estudiante Nombre</th>
+                  <th>Empresa</th>
+                  <th>Especialidad</th>
+                  <th>estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let solicitud of solicitudes">
+                  <td>{{ solicitud.nombreEstudiante }}</td>
+                  <td>{{ solicitud.nombreEmpresa }}</td>
+                  <td>Especialidad X</td>
+                  <td>{{ solicitud.estado }}</td>
+                  <td>
+                    <i class="far fa-eye details-icon"(click)="mostrarDetalles(solicitud)" title="Ver Detalles"></i>
+                    <i class="fas fa-check-circle check-icon" title="Marcar"></i>
+                    <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
+                  </td>
+                </tr>
 
-    .card-header {
-      background-color: #00cc99;
-      color: #1a1a1a;
-      border-bottom: none;
-      font-size: 36px;
-      text-transform: uppercase;
-      padding: 20px;
-      text-align: center;
-    }
+                <!-- Puedes agregar más filas según sea necesario -->
+              </tbody>
+            </table>
+          </div>
 
-    .card-body {
-      padding: 50px;
-      text-align: center;
-    }
 
-    .card-text {
-      color: #ffffff;
-    }
-
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .btn {
-      font-size: 18px;
-      padding: 15px 30px;
-      margin: 0 10px;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-primary {
-      background-color: #00cc99;
-      border: none;
-    }
-
-    .btn-secondary {
-      background-color: #ffcc00;
-      border: none;
-    }
-
-    .btn-info {
-      background-color: #0099ff;
-      border: none;
-    }
-
-    .btn-outline-primary {
-      color: #00cc99;
-      border: 2px solid #00cc99;
-    }
-
-    .btn:hover {
-      background-color: #1a1a1a;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="card">
-      <div class="card-header">
-        <h5 class="card-title">Gestionar Carta de Presentación</h5>
-      </div>
-      <div class="card-body">
-        <p class="card-text">Explora las opciones avanzadas para gestionar tu carta de presentación.</p>
-        <div class="btn-group">
-          <button class="btn btn-primary">Generar Carta de Presentación</button>
-          <button class="btn btn-secondary">Descargar</button>
-          <button class="btn btn-info">Adjuntar Carta</button>
+        </div>
+        <div class="detalle-container" *ngIf="solicitudSeleccionada">
+          <div class="detalle-card">
+            <h3>Detalles de la Solicitud</h3>
+            <p><strong>Estudiante:</strong> {{ solicitudSeleccionada.nombreEstudiante }}</p>
+            <p><strong>Empresa:</strong> {{ solicitudSeleccionada.nombreEmpresa }}</p>
+            <p><strong>Comentario:</strong> {{ solicitudSeleccionada.comentarios }}</p>
+            <!-- Agrega más detalles según sea necesario -->
+            <button type="button" class="btn btn-primary" (click)="cerrarDetalles()">Cerrar Detalles</button>
+          </div>
         </div>
       </div>
-      <div class="card-footer">
-        <button class="btn btn-outline-primary">Volver</button>
-      </div>
-    </div>
-  </div>
 
-  <!-- Script para Bootstrap JS (opcional si necesitas funcionalidades de Bootstrap) -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+      <!-- Script para Bootstrap JS (opcional si necesitas funcionalidades de Bootstrap) -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+
+    </html>
 
 </div></app-navbar>
 

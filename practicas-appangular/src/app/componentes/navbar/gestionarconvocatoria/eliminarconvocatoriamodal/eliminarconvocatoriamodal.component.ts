@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { GestionarconvocatoriaComponent } from '../gestionarconvocatoria.component';
@@ -13,7 +13,7 @@ import { ConvocatoriaService } from '../services/convocatoria.service';
 })
 
 export class EliminarconvocatoriamodalComponent {
-  @Output() confirmarEliminacion: EventEmitter<number> = new EventEmitter<number>();
+  @Input() id: number = 0;
 
 
   constructor(private convocatoriaService : ConvocatoriaService) {}
@@ -29,6 +29,20 @@ export class EliminarconvocatoriamodalComponent {
   cerrarModalEliminar() {
     // Cierra el modal de eliminación usando el servicio
     this.convocatoriaService.closeEliminarModal();
+  }
+  eliminarConvocatoria(){
+    console.log(this.id);
+    this.convocatoriaService.deleteConvocatoria(this.id).subscribe(
+      () => {
+        console.log(`Convocatoria eliminada con éxito, id: ${this.id}`);
+      },
+      (error) => {
+        console.error('Error al eliminar la convocatoria', error);
+      }
+    );
+    this.id = 0;
+    this.cerrarModalEliminar();
+
   }
 
 

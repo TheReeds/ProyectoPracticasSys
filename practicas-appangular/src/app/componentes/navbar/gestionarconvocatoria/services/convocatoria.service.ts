@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,18 @@ export class ConvocatoriaService {
   constructor(private http: HttpClient) { }
 
   getData(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    // Hacer la llamada al API para obtener las convocatorias y las empresas
+    return this.http.get<any>(this.apiUrl).pipe(
+      map(response => {
+        return {
+          convocatorias: response.data,
+          empresas: response.empresas,
+        };
+      })
+    );
+  }
+  getEmpresas(): Observable<any> {
+    return this.http.get<any>('http://127.0.0.1:8000/api/empresas');
   }
 
   getConvocatoria(id: number): Observable<any> {
@@ -49,5 +61,7 @@ export class ConvocatoriaService {
   closeEliminarModal() {
     this.eliminarModalState.next(false);
   }
+
+
 
 }
