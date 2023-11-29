@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ConvocatoriasController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\SolicitudCartaController;
@@ -27,6 +28,8 @@ Route::apiResource('solicitudcartas', SolicitudCartaController::class);
 Route::apiResource('empresas', EmpresaController::class);
 
 Route::apiResource('convocatorias', ConvocatoriasController::class);
+
+
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function(){
 
 
@@ -34,5 +37,14 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function
 });
 
 Route::apiResource('planpracticas',PlanPracticasController::class);
+
+
+/// LOGIN NO BORRAR
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('logout', [AuthController::class, 'logout']);
+});
+
 
 

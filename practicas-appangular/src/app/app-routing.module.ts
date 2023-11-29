@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './componentes/login/services/auth-guard-service.service';
+
 import { LoginComponent } from './componentes/login/login/login.component';
 import { RegisterComponent } from './componentes/login/register/register.component';
 import { InterfazComponent } from './componentes/login/interfaz/interfaz.component';
@@ -32,45 +34,45 @@ const routes: Routes = [
   {path: '', component: InterfazComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'navbar', component: NavbarComponent},
-  {path: 'inicio', component: InicioComponent},
+  {path: 'navbar', component: NavbarComponent, canActivate: [AuthGuardService] },
+  {path: 'inicio', component: InicioComponent, canActivate: [AuthGuardService]},
 //GestionarEmpresa
-  {path: 'gestion-empresa', component: GestionempresaComponent},
-  {path: 'validar-empresa', component: ValidarempresaComponent},
-  {path: 'gestionar-especialidad', component: GestionarespecialidadComponent},
+  {path: 'gestion-empresa', component: GestionempresaComponent, canActivate: [AuthGuardService]},
+  {path: 'validar-empresa', component: ValidarempresaComponent, canActivate: [AuthGuardService]},
+  {path: 'gestionar-especialidad', component: GestionarespecialidadComponent, canActivate: [AuthGuardService]},
   //convocatorias
-  {path: 'gestionar-convocatoria', component: GestionarconvocatoriaComponent},
+  {path: 'gestionar-convocatoria', component: GestionarconvocatoriaComponent, canActivate: [AuthGuardService]},
   //gestionardocumentos
-  {path: 'solicitudes-carta', component: SolictudescartaComponent},
-  {path: 'gestionar-documentacion', component: GestiondocumentosComponent},
+  {path: 'solicitudes-carta', component: SolictudescartaComponent, canActivate: [AuthGuardService]},
+  {path: 'gestionar-documentacion', component: GestiondocumentosComponent, canActivate: [AuthGuardService]},
   //Gestionarsupervisores
-  {path: 'gestion-supervisores', component: GestionsupervisoresComponent},
-  {path: 'asignar-supervisores', component: AsignarsupervisoresComponent},
+  {path: 'gestion-supervisores', component: GestionsupervisoresComponent, canActivate: [AuthGuardService]},
+  {path: 'asignar-supervisores', component: AsignarsupervisoresComponent, canActivate: [AuthGuardService]},
   //Informe consolidado
-  {path: 'generar-informeconsolidado', component: GenerarinformeconsolidadoComponent},
+  {path: 'generar-informeconsolidado', component: GenerarinformeconsolidadoComponent, canActivate: [AuthGuardService]},
   //opciones
-  {path: 'opciones', component: OpcionesComponent},
+  {path: 'opciones', component: OpcionesComponent, canActivate: [AuthGuardService]},
 
 
   //NAVBAR ESTUDIANTES
-  {path: 'estudiantes/navbar', component: NavbarEstudianteComponent},
-  {path: 'estudiantes/inicio', component: InicioEstudianteComponent},
+  {path: 'estudiantes/navbar', component: NavbarEstudianteComponent, canActivate: [AuthGuardService]},
+  {path: 'estudiantes/inicio', component: InicioEstudianteComponent, canActivate: [AuthGuardService]},
   //solicitarempresa
-  {path: 'estudiantes/solicitar-empresa', component: SolicitarEmpresaComponent},
+  {path: 'estudiantes/solicitar-empresa', component: SolicitarEmpresaComponent, canActivate: [AuthGuardService]},
   //convocatorias
-  {path: 'estudiantes/ver-convocatorias', component: VerConvocatoriasComponent},
-  {path: 'estudiantes/mis-convocatorias', component: MisConvocatoriasComponent},
-  {path: 'estudiantes/carta-presentacion', component: CartaPresentacionComponent},
+  {path: 'estudiantes/ver-convocatorias', component: VerConvocatoriasComponent, canActivate: [AuthGuardService]},
+  {path: 'estudiantes/mis-convocatorias', component: MisConvocatoriasComponent, canActivate: [AuthGuardService]},
+  {path: 'estudiantes/carta-presentacion', component: CartaPresentacionComponent, canActivate: [AuthGuardService]},
   //docs
-  {path: 'estudiantes/mis-documentos', component: MisDocumentosComponent},
+  {path: 'estudiantes/mis-documentos', component: MisDocumentosComponent, canActivate: [AuthGuardService]},
   //ppp
-  {path: 'estudiantes/gestionar-planpracticas', component: GestionarPlanpracticasComponent},
+  {path: 'estudiantes/gestionar-planpracticas', component: GestionarPlanpracticasComponent, canActivate: [AuthGuardService]},
   //informes
-  {path: 'estudiantes/informe-practicas', component: InformeProgramadoComponent},
-  {path: 'estudiantes/mis-informes', component: MisInformesComponent},
+  {path: 'estudiantes/informe-practicas', component: InformeProgramadoComponent, canActivate: [AuthGuardService]},
+  {path: 'estudiantes/mis-informes', component: MisInformesComponent, canActivate: [AuthGuardService]},
   //evaluaciones
-  {path: 'estudiantes/mis-evaluaciones', component: MisEvaluacionesComponent},
-  {path: 'estudiantes/configuracion-estudiante', component: ConfiguracionComponent}
+  {path: 'estudiantes/mis-evaluaciones', component: MisEvaluacionesComponent, canActivate: [AuthGuardService]},
+  {path: 'estudiantes/configuracion-estudiante', component: ConfiguracionComponent, canActivate: [AuthGuardService]}
 
 ];
 

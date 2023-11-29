@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthServiceService } from '../login/services/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +11,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  constructor(private authService: AuthServiceService, private router: Router) {}
   sidebarOpen = false;
   sidebarOpen2 = false;
   sidebarOpen3 = false;
+  userName: string | null = null;
+
+  ngOnInit() {
+    this.userName = this.authService.getUserName();
+  }
 
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
@@ -27,6 +35,23 @@ export class NavbarComponent {
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
     // Puedes agregar más lógica aquí, como emitir un evento, cambiar clases, etc.
+  }
+  logout(): void {
+    this.router.navigate(['/login']);
+    this.authService.logout().subscribe(
+      () => {
+        // Manejar el éxito del cierre de sesión, por ejemplo, redirigir a la página de inicio de sesión
+        console.log('Cierre de sesión exitoso');
+
+        // Redirigir a la página de inicio de sesión
+        // this.router.navigate(['/login']);
+      },
+      (errorMessage) => {
+        // Manejar el error del cierre de sesión
+        console.error('Error durante el cierre de sesión:', errorMessage);
+        // Puedes mostrar un mensaje al usuario indicando que ocurrió un error
+      }
+    );
   }
 
 }

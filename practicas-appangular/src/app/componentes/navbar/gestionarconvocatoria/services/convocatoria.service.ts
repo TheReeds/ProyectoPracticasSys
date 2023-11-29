@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthServiceService } from 'src/app/componentes/login/services/auth-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConvocatoriaService {
   private apiUrl = 'http://127.0.0.1:8000/api/convocatorias';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthServiceService) { }
 
   getData(): Observable<any> {
     // Hacer la llamada al API para obtener las convocatorias y las empresas
@@ -61,7 +62,23 @@ export class ConvocatoriaService {
   closeEliminarModal() {
     this.eliminarModalState.next(false);
   }
+  private getHeaders(): HttpHeaders {
+    const token = this.authService.getToken();
 
+    // Configurar los encabezados con el token
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+  }
+  getSomeData(): Observable<any> {
+    const url = `${this.apiUrl}/some-endpoint`;
+
+    // Incluir el token en los encabezados
+    const headers = this.getHeaders();
+
+    return this.http.get(url, { headers });
+  }
 
 
 }
