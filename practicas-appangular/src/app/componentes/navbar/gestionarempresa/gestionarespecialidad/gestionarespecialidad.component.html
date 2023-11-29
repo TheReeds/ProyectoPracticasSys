@@ -1,5 +1,137 @@
 <app-navbar><div navbar-content>
   <!-- TODO TU CRUD O CONTENIDO AQUI -->
-  <p>Contenido específico</p>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Especialidades</title>
+    <style>
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Gestión de Especialidades</h2>
+
+    <form id="especialidadForm">
+      <select data-te-select-init>
+        <option value="1">Desarrollo de Software</option>
+        <option value="2">telecomunicaiones</option>
+        <option value="3">Administracion de Redes</option>
+        <option value="4">Seguridad informatica</option>
+        <option value="5">Diseño y administración de base de datos</option>
+
+      </select>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" rows="8"></textarea>
+
+        <button type="button" onclick="agregarEspecialidad()">Agregar Especialidad</button>
+    </form>
+
+    <script>
+        function agregarEspecialidad() {
+            // Obtener los valores del formulario
+            var nombre = document.getElementById('nombre').value;
+            var descripcion = document.getElementById('descripcion').value;
+
+            // Validar que se haya ingresado un nombre
+            if (!nombre) {
+                alert('Por favor, ingrese el nombre de la especialidad.');
+                return;
+            }
+
+            // Crear un nuevo elemento de lista con los valores del formulario
+            var nuevaEspecialidad = document.createElement('li');
+            nuevaEspecialidad.textContent = nombre + ' - ' + descripcion;
+
+
+        }
+    </script>
+
+</body>
+</html>
+
 </div></app-navbar>
+
+<!--Footer container-->
+<footer
+  class="flex flex-col items-center bg-neutral-200 text-center text-white dark:bg-neutral-600 dark:text-neutral-200">
+  <div class="container p-6">
+    <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+      <div class="mb-6 lg:mb-0">
+        <img
+          src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
+          class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img
+          src="https://tecdn.b-cdn.net/img/new/fluid/city/111.webp"
+          class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img
+          src="https://tecdn.b-cdn.net/img/new/fluid/city/112.webp"
+          class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img
+          src="https://tecdn.b-cdn.net/img/new/fluid/city/114.webp"
+          class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img
+          src="https://tecdn.b-cdn.net/img/new/fluid/city/115.webp"
+          class="w-full rounded-md shadow-lg" />
+      </div>
+      <div class="mb-6 lg:mb-0">
+        <img
+          src="https://tecdn.b-cdn.net/img/new/fluid/city/116.webp"
+          class="w-full rounded-md shadow-lg" />
+      </div>
+    </div>
+  </div>
+
+  <!--Copyright section-->
+  <div
+    class="w-full bg-neutral-300 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
+    © 2023 Copyright:
+    <a class="dark:text-neutral-400" href="https://tw-elements.com/"
+      >TW elements</a
+    >
+  </div>
+</footer>
 
