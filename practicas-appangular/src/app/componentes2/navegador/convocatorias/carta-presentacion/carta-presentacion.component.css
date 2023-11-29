@@ -1,0 +1,107 @@
+body {
+  background: linear-gradient(to right, #3c364d, #17172b);
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 80%;
+  text-align: center;
+}
+
+.card {
+  background-color: #1d1b1b;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.card-header {
+  background-color: #2791ce;
+  color: #1a1a1a;
+  border-bottom: none;
+  font-size: 36px;
+  text-transform: uppercase;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+  padding: 50px;
+  text-align: center;
+}
+
+.card-text {
+  color: #ffffff;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: -10px; /* Para compensar el margen derecho del último elemento */
+}
+
+.image-container img {
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 15px 30px;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+.btn-primary {
+  background-color: #8100cc;
+  border: none;
+}
+
+.btn-primaryd {
+  background-color: #14d86c;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #ffcc00;
+  border: none;
+}
+
+.btn-info {
+  background-color: #0099ff;
+  border: none;
+}
+
+.btn-outline-primary {
+  color: #00cc99;
+  border: 2px solid #00cc99;
+}
+
+.btn:hover {
+  background-color: #1a1a1a;
+}
+
+/* Estilo para el formulario (inicialmente oculto) */
+#formulario {
+  display: none;
+  margin-top: 20px;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+}

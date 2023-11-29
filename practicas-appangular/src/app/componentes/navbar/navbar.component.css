@@ -29,3 +29,14 @@
   opacity: 0.7;
   border-radius: 5px;
 }
+.menu-transicion{
+  opacity: 1;
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out
+}
+.menu-transicion.ng-leave, .menu-transicion.ng-enter{
+  opacity: 0;
+}
+.menu-transicion.ng-leave-active, .menu-transicion.ng-enter-active{
+  transition-delay: 100ms; /* Delay de 100ms */
+  transition-duration: 300ms; /* Duración de la transición: 300ms */
+}

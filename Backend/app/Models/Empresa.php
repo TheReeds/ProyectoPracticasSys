@@ -27,4 +27,8 @@ class Empresa extends Model
     {
         return $this->hasMany(Convocatorias::class);
     }
+    public function solicitudes()
+    {
+        return $this->hasMany(SolicitudCarta::class, 'empresa_id');
+    }
 }

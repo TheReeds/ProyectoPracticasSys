@@ -1,126 +1,7 @@
 <app-navbar-estudiante>
   <div navbarestudiante-content>
 
-    <!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Gestionar Carta de Presentación</title>
-  <!-- Enlace a Tailwind CSS (puedes cambiar a tu versión específica) -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Enlace a SweetAlert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <style>
-    body {
-      background: linear-gradient(to right, #3c364d, #17172b);
-      color: #ffffff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      width: 80%;
-      text-align: center;
-    }
-
-    .card {
-      background-color: #1d1b1b;
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-    }
-
-    .card-header {
-      background-color: #2791ce;
-      color: #1a1a1a;
-      border-bottom: none;
-      font-size: 36px;
-      text-transform: uppercase;
-      padding: 20px;
-      text-align: center;
-      border-radius: 10px 10px 0 0;
-    }
-
-    .card-body {
-      padding: 50px;
-      text-align: center;
-    }
-
-    .card-text {
-      color: #ffffff;
-    }
-
-    .image-container {
-      display: flex;
-      justify-content: space-between;
-      margin-right: -10px; /* Para compensar el margen derecho del último elemento */
-    }
-
-    .image-container img {
-      width: 200px;
-      height: auto;
-      margin-right: 10px;
-    }
-
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .btn {
-      font-size: 18px;
-      padding: 15px 30px;
-      transition: background-color 0.3s ease;
-      border-radius: 20px;
-    }
-
-    .btn-primary {
-      background-color: #8100cc;
-      border: none;
-    }
-
-    .btn-primaryd {
-      background-color: #14d86c;
-      border: none;
-    }
-
-    .btn-secondary {
-      background-color: #ffcc00;
-      border: none;
-    }
-
-    .btn-info {
-      background-color: #0099ff;
-      border: none;
-    }
-
-    .btn-outline-primary {
-      color: #00cc99;
-      border: 2px solid #00cc99;
-    }
-
-    .btn:hover {
-      background-color: #1a1a1a;
-    }
-
-    /* Estilo para el formulario (inicialmente oculto) */
-    #formulario {
-      display: none;
-      margin-top: 20px;
-      background-color: #333;
-      padding: 20px;
-      border-radius: 10px;
-    }
-  </style>
-</head>
 
 <body>
   <div class="container">
@@ -137,7 +18,7 @@
         <p class="card-text">
           Obtén tu carta de presentación para prácticas pre profesionales en nuestra plataforma. Solicítala fácilmente y recibe una versión personalizada. ¡Comienza tu camino hacia el éxito profesional ahora mismo!🤓😈</p>
         <div class="btn-group">
-          <button class="btn btn-primaryd" (click)  ="mostrarFormulario()">Generar Carta de Presentación</button>
+          <button class="btn btn-primaryd">Generar Carta de Presentación</button>
           <button class="btn btn-secondary">Descargar</button>
           <button class="btn btn-info">Adjuntar Carta</button>
           <button class="btn btn-primary ml-4">Registrar Nueva Carta</button>
@@ -155,7 +36,7 @@
   <!-- Script para Bootstrap JS (opcional si necesitas funcionalidades de Bootstrap) -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <!-- Script para mostrar/ocultar el formulario y SweetAlert2 -->
+  <!-- Script para mostrar/ocultar el formulario y SweetAlert2
   <script>
     function mostrarFormulario() {
       // Muestra el formulario como una notificación utilizando SweetAlert2
@@ -166,10 +47,10 @@
         showConfirmButton: false,
       });
     }
-  </script>
+  </script>-->
 </body>
 
-</html>
+
 
 
   </div>

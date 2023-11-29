@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarEstudianteComponent } from '../../navbar-estudiante/navbar-estudiante.component';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carta-presentacion',
@@ -12,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class CartaPresentacionComponent {
 
-  mostrarFormulario() {
+  /*mostrarFormulario() {
     Swal.fire({
       html: `
       <div class="container mx-auto my-8 p-8 bg-gray-200 text-gray-800 rounded-lg shadow-md">
@@ -47,10 +46,9 @@ export class CartaPresentacionComponent {
     </div>
   </form>
 </div>
-
       `,
       showCancelButton: false,
       showConfirmButton: false,
     });
-  }
+  }*/
 }
