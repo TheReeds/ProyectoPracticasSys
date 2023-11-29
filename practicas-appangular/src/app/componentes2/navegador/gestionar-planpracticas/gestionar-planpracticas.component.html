@@ -1,4 +1,70 @@
-<app-navbar-estudiante><div navbarestudiante-content>
-  <!-- TODO TU CRUD O CONTENIDO AQUI -->
-  <p>Contenido específico</p>
-</div></app-navbar-estudiante>
+<app-navbar-estudiante>
+  <div navbarestudiante-content>
+
+
+
+<body class="bg-gray-100 grid-cols-1 flex">
+
+  <div class="max-w-screen-xl mx-auto bg-white rounded p-6 lg:flex">
+      <!-- Formulario a la izquierda -->
+      <div class="lg:w-1/2">
+          <h1 class="text-2xl font-bold mb-4">Formulario Plan Prácticas</h1>
+
+          <form >
+              <label class="block mb-2 text-sm font-semibold">Fecha de Inicio</label>
+              <input type="date" class="w-full p-2 mb-4 border rounded"  [(ngModel)]="formData.fecha_inicio_plan" name="fecha_inicio_plan">
+
+
+              <label class="block mb-2 text-sm font-semibold">Fecha Fin</label>
+              <input type="date" class="w-full p-2 mb-4 border rounded" [(ngModel)]="formData.fecha_fin_plan" name="fecha_fin_plan">
+
+              <label class="block mb-2 text-sm font-semibold">Horas Planificadas</label>
+              <input type="number" class="w-full p-2 mb-4 border rounded" [(ngModel)]="formData.horas_planificadas" name="horas_planificadas">
+
+              <label class="block mb-2 text-sm font-semibold">Horas Semanales Planificadas</label>
+              <input type="number" class="w-full p-2 mb-4 border rounded" [(ngModel)]="formData.horas_semanales_planificadas" name="horas_semanales_planificadas">
+
+              <label class="block mb-2 text-sm font-semibold">Modalidad</label>
+              <select class="w-full p-2 mb-4 border rounded" [(ngModel)]="formData.modalidad" name="modalidad">
+                  <option value="presencial">Presencial</option>
+                  <option value="virtual">Virtual</option>
+              </select>
+
+              <label class="block mb-2 text-sm font-semibold">Turno(s)</label>
+              <select class="w-full p-2 mb-4 border rounded" [(ngModel)]="formData.turno" name="turno">
+                  <option value="mañana">Mañana</option>
+                  <option value="tarde">Tarde</option>
+                  <option value="noche">Noche</option>
+                  <option value="libre">Libre</option>
+              </select>
+
+              <h2 class="text-xl font-bold mb-4 mt-8">Supervisor Directo</h2>
+
+              <label class="block mb-2 text-sm font-semibold">Nombres y Apellidos</label>
+              <input type="text" class="w-full p-2 mb-4 border rounded" [(ngModel)]="formData.nombre_apellido_jefe" name="nombre_apellido_jefe">
+
+              <label class="block mb-2 text-sm font-semibold">Correo Electrónico del Jefe</label>
+              <input type="email" class="w-full p-2 mb-4 border rounded" pattern=".*@gmail\.com" title="Ingrese un correo electrónico con el dominio @gmail.com" required [(ngModel)]="formData.email_jefe" name="email_jefe">
+
+              <label class="block mb-2 text-sm font-semibold">Número de WhatsApp del Jefe</label>
+              <input type="tel" class="w-full p-2 mb-4 border rounded" [(ngModel)]="formData.wahtsapp_jefe" name="wahtsapp_jefe">
+
+              <label class="block mb-2 text-sm font-semibold">Tiempo Informe</label>
+              <input type="tel" class="w-full p-2 mb-4 border rounded" [(ngModel)]="formData.tiempo_informe" name="tiempo_informe">
+
+              <label class="block mb-2 text-sm font-semibold">Subir Documento del Plan</label>
+              <input type="file" class="w-full p-2 mb-4 border rounded">
+
+              <button type="submit" class="bg-blue-500 text-white p-2 rounded" (click)="submitForm()" >Guardar Datos</button>
+          </form>
+      </div>
+  </div>
+
+  <!-- Imagen a la derecha -->
+  <div class="lg:w-1/2">
+    <img src="https://www.perutrabajos.com/imagenes/practicas.png" alt="Imagen de ejemplo" class="w-full h-full object-cover">
+  </div>
+
+  </body>
+</div>
+</app-navbar-estudiante>
