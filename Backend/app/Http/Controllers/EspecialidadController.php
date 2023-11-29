@@ -5,62 +5,62 @@ namespace App\Http\Controllers;
 use App\Models\Especialidad;
 use App\Http\Requests\StoreEspecialidadRequest;
 use App\Http\Requests\UpdateEspecialidadRequest;
+use Illuminate\Http\Request;
 
 class EspecialidadController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+ // Método para mostrar el formulario de creación
+ public function index()
+ {
+     $especialidades = Especialidad::all();
+     return response()->json($especialidades);
+ }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+ // Obtener una especialidad por ID
+ public function show($id)
+ {
+     $especialidad = Especialidad::findOrFail($id);
+     return response()->json($especialidad);
+ }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreEspecialidadRequest $request)
-    {
-        //
-    }
+ // Crear una nueva especialidad
+ public function store(Request $request)
+ {
+     $request->validate([
+         'name' => 'required',
+         // ... otras reglas de validación ...
+     ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Especialidad $especialidad)
-    {
-        //
-    }
+     $especialidad = Especialidad::create($request->all());
+     return response()->json($especialidad, 201);
+ }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Especialidad $especialidad)
-    {
-        //
-    }
+ // Actualizar una especialidad por ID
+ public function update(Request $request, $id)
+ {
+     $request->validate([
+         'name' => 'required',
+         // ... otras reglas de validación ...
+     ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateEspecialidadRequest $request, Especialidad $especialidad)
-    {
-        //
-    }
+     $especialidad = Especialidad::findOrFail($id);
+     $especialidad->update($request->all());
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Especialidad $especialidad)
-    {
-        //
-    }
+     return response()->json($especialidad, 200);
+ }
+
+ // Eliminar una especialidad por ID
+ public function destroy($id)
+ {
+     $especialidad = Especialidad::findOrFail($id);
+     $especialidad->delete();
+
+     return response()->json(null, 204);
+ }
+
+
+
 }

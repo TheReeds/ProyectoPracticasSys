@@ -16,9 +16,11 @@ class EspecialidadFactory extends Factory
      */
     public function definition(): array
     {
-        $name=$this->faker->word(20);
+        $name=$this->faker->jobTitle();
         return [
             'name'=>$name,
+            'descripcion'=>$this->faker->text(50),
+
             //
         ];
     }

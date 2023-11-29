@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('empresa_especialidad', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('empresa_id');
-            $table->unsignedBigInteger('especialidades_id');
+            $table->unsignedBigInteger('especialidad_id');
             $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
-            $table->foreign('especialidades_id')->references('id')->on('especialidades')->onDelete('cascade');
+            $table->foreign('especialidad_id')->references('id')->on('especialidads')->onDelete('cascade');
             $table->timestamps();
         });
     }
