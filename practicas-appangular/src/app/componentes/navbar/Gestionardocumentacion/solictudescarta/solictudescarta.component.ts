@@ -4,6 +4,7 @@ import { NavbarComponent } from '../../navbar.component';
 import { GestionardocumentacionService } from '../gestionardocumentacion.service';
 import { forkJoin } from 'rxjs';
 
+
 @Component({
   selector: 'app-solictudescarta',
   standalone: true,
@@ -13,7 +14,8 @@ import { forkJoin } from 'rxjs';
 })
 export class SolictudescartaComponent implements OnInit {
 
-  solicitudes: any[] = []; // Aquí almacenarás las solicitudes obtenidas del servicio
+  solicitudes: any[] = [];
+  solicitudSeleccionada: any | null = null;
 
   constructor(private GestionardocumentacionService: GestionardocumentacionService) { }
 
@@ -72,6 +74,13 @@ export class SolictudescartaComponent implements OnInit {
         console.error('Error al obtener nombres de empresas:', error);
       }
     );
+  }
+  mostrarDetalles(solicitud: any): void {
+    this.solicitudSeleccionada = solicitud;
+  }
+
+  cerrarDetalles(): void {
+    this.solicitudSeleccionada = null;
   }
 
 }

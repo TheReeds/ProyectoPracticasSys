@@ -46,7 +46,7 @@
                   <td>Especialidad X</td>
                   <td>{{ solicitud.estado }}</td>
                   <td>
-                    <i class="far fa-eye details-icon" title="Ver Detalles"></i>
+                    <i class="far fa-eye details-icon"(click)="mostrarDetalles(solicitud)" title="Ver Detalles"></i>
                     <i class="fas fa-check-circle check-icon" title="Marcar"></i>
                     <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
                   </td>
@@ -55,6 +55,18 @@
                 <!-- Puedes agregar más filas según sea necesario -->
               </tbody>
             </table>
+          </div>
+
+
+        </div>
+        <div class="detalle-container" *ngIf="solicitudSeleccionada">
+          <div class="detalle-card">
+            <h3>Detalles de la Solicitud</h3>
+            <p><strong>Estudiante:</strong> {{ solicitudSeleccionada.nombreEstudiante }}</p>
+            <p><strong>Empresa:</strong> {{ solicitudSeleccionada.nombreEmpresa }}</p>
+            <p><strong>Comentario:</strong> {{ solicitudSeleccionada.comentarios }}</p>
+            <!-- Agrega más detalles según sea necesario -->
+            <button type="button" class="btn btn-primary" (click)="cerrarDetalles()">Cerrar Detalles</button>
           </div>
         </div>
       </div>
