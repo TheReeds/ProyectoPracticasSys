@@ -23,7 +23,7 @@
             </div>
             <div class="flex items-center justify-center mt-8 space-x-4">
               <button class="btn btn-primaryd bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
-                onclick="mostrarFormulario()">Generar Carta de Presentación</button>
+                (click)="mostrarFormulario()">Generar Carta de Presentación</button>
               <button class="btn btn-secondary bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
                 onclick="mostrarFormulario()">Descargar</button>
               <button class="btn btn-info bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
@@ -33,11 +33,18 @@
             </div>
           </div>
         </div>
+      </div>
+      <div *ngIf="Formulario">
+        <div class="container mx-auto my-8 p-8 bg-white rounded-md shadow-md">
+          <h2 class="text-3xl font-bold mb-6">Generar Carta de Presentación</h2>
+          <form>
+            <!-- Contenido del formulario -->
 
-        <!-- Formulario oculto -->
-        <div id="formulario" class="hidden bg-white p-8 rounded-md mt-8">
-          <h2 class="text-gray-800 text-2xl mb-4">Llenar Formulario</h2>
-          <!-- Aquí puedes agregar los campos del formulario -->
+            <div class="flex">
+              <button type="submit" class="bg-indigo-500 text-white px-6 py-2 rounded-md mr-2 hover:bg-indigo-600">Enviar</button>
+              <button type="button" (click)="cerrarFormulario()" class="border border-indigo-500 text-indigo-500 px-6 py-2 rounded-md hover:bg-indigo-100">Volver</button>
+            </div>
+          </form>
         </div>
       </div>
     </body>
