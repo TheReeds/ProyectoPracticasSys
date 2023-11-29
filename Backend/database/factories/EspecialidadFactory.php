@@ -19,6 +19,7 @@ class EspecialidadFactory extends Factory
         $name=$this->faker->jobTitle();
         return [
             'name'=>$name,
+            'area'=>$this->faker->text(50),
             'descripcion'=>$this->faker->text(50),
 
             //

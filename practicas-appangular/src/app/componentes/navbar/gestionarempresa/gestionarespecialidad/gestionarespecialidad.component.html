@@ -1,90 +1,162 @@
 <app-navbar><div navbar-content>
   <!-- TODO TU CRUD O CONTENIDO AQUI -->
-  <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Especialidades</title>
-    <style>
 
+  <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+    Agregar Nueva Especialidad
+    </span>
+    </button>
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-blue-100 dark:text-blue-100">
+          <thead class="text-xs text-white uppercase bg-blue-600 border-b border-blue-400 dark:text-white">
+              <tr>
+                  <th scope="col" class="px-6 py-3 bg-blue-900">
+                      NOMBRE DE ESPECIALIDAD
+                  </th>
+                  <th scope="col" class="px-6 py-3 bg-blue-900">
+                      AREA
+                  </th>
+                  <th scope="col" class="px-6 py-3 bg-blue-900">
+                      DESCRIPCION
+                  </th>
+                  <th scope="col" class="px-6 py-3 bg-blue-900">
+                      Action
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="bg-blue-600 border-b border-blue-400">
+                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
+                    Desarrollo de Software:
+                  </th>
+                  <td class="px-6 py-4">
+                    Desarrollo Frontend
+                  </td>
+                  <td class="px-6 py-4 bg-blue-500">
+                      Laptop
+                  </td>
 
-        form {
-            max-width: 400px;
-            margin: auto;
+                  <td class="px-6 py-4 bg-blue-600">
+                    <div class="inline-flex rounded-md shadow-sm" role="group">
+                      <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                          Editar
+                        </button>
+                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                          Eliminar
+                      </button>
+                    </div>
 
-        }
+                  </td>
+              </tr>
+              <tr class="bg-blue-600 border-b border-blue-400">
+                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
+                    Gestión de Proyectos de TI:
+                  </th>
+                  <td class="px-6 py-4">
+                    Metodologías
+                  </td>
+                  <td class="px-6 py-4 bg-blue-500">
+                      Laptop PC
+                  </td>
 
-        label {
-            display: block;
-            margin-bottom: 8px;
+                  <td class="px-6 py-4 bg-blue-600">
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      Editar
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      Eliminar
+                  </button>
+                  </td>
+              </tr>
+              <tr class="bg-blue-600 border-b border-blue-400">
+                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
+                    Ciberseguridad:
+                  </th>
+                  <td class="px-6 py-4">
+                      Black
+                  </td>
+                  <td class="px-6 py-4 bg-blue-500">
+                      Accessories
+                  </td>
 
-        }
+                  <td class="px-6 py-4 bg-blue-600">
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      Editar
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      Eliminar
+                  </button>
+                  </td>
+              </tr>
+              <tr class="bg-blue-600 border-b border-blue-400">
+                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
+                    Big Data y Ciencia de Datos:
+                  </th>
+                  <td class="px-6 py-4">
+                      Gray
+                  </td>
+                  <td class="px-6 py-4 bg-blue-500">
+                      Phone
+                  </td>
 
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-        }
+                  <td class="px-6 py-4 bg-blue-600">
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      Editar
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      Eliminar
+                  </button>
+                  </td>
+              </tr>
+              <tr class="bg-blue-600 border-blue-40">
+                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
+                      Telecomunicaciones:
+                  </th>
+                  <td class="px-6 py-4">
+                      Red
+                  </td>
+                  <td class="px-6 py-4 bg-blue-500">
+                      Wearables
+                  </td>
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-    <h2>Gestión de Especialidades</h2>
-
-    <form id="especialidadForm">
-      <select data-te-select-init>
-        <option value="1">Desarrollo de Software</option>
-        <option value="2">telecomunicaiones</option>
-        <option value="3">Administracion de Redes</option>
-        <option value="4">Seguridad informatica</option>
-        <option value="5">Diseño y administración de base de datos</option>
-
-      </select>
-
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" rows="8"></textarea>
-
-        <button type="button" onclick="agregarEspecialidad()">Agregar Especialidad</button>
-    </form>
-
-
-    <script>
-        function agregarEspecialidad() {
-            // Obtener los valores del formulario
-            var nombre = document.getElementById('nombre').value;
-            var descripcion = document.getElementById('descripcion').value;
-
-            // Validar que se haya ingresado un nombre
-            if (!nombre) {
-                alert('Por favor, ingrese el nombre de la especialidad.');
-                return;
-            }
-
-            // Crear un nuevo elemento de lista con los valores del formulario
-            var nuevaEspecialidad = document.createElement('li');
-            nuevaEspecialidad.textContent = nombre + ' - ' + descripcion;
-
-
-        }
-    </script>
-
-</body>
-</html>
+                  <td class="px-6 py-4 bg-blue-600">
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      Editar
+                    </button>
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                      Eliminar
+                  </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
 
 </div></app-navbar>
+
+ <!-- FOOTER-->
+
+ <footer class="bg-blue-900 rounded-lg shadow m-4 dark:bg-blue-900">
+  <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+    <span class="text-sm text-blue-50 sm:text-center dark:text-blue-50">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+  </span>
+  <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-blue-50 dark:text-blue-50 sm:mt-0">
+      <li>
+          <a href="#" class="hover:underline me-4 md:me-6">About</a>
+      </li>
+      <li>
+          <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+      </li>
+      <li>
+          <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+      </li>
+      <li>
+          <a href="#" class="hover:underline">Contact</a>
+      </li>
+  </ul>
+  </div>
+</footer>
+
+
 

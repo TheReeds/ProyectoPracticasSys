@@ -31,6 +31,7 @@ class EspecialidadController extends Controller
  {
      $request->validate([
          'name' => 'required',
+
          // ... otras reglas de validación ...
      ]);
 
