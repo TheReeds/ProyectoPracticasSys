@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Especialidad;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +19,8 @@ class DatabaseSeeder extends Seeder
             AlumnoSeeder::class,
             SolicitudCartaSeeder::class,
             PlanPracticasSeeder::class,
+            EspecialidadSeeder::class
+
         ]);
 
 

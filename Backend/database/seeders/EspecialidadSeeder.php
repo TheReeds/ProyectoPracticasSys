@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Especialidad;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,8 @@ class EspecialidadSeeder extends Seeder
      */
     public function run(): void
     {
+        Especialidad::factory()->count(10)->create();
+
         //
     }
 }

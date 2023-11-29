@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ConvocatoriasController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\EspecialidadController;
 use App\Http\Controllers\SolicitudCartaController;
 use App\Http\Controllers\PlanPracticasController;
 use Illuminate\Http\Request;
@@ -25,6 +26,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('alumnos', AlumnoController::class);
 Route::apiResource('solicitudcartas', SolicitudCartaController::class);
 Route::apiResource('empresas', EmpresaController::class);
+Route::apiResource('especialidades', EspecialidadController::class);
+
 
 Route::apiResource('convocatorias', ConvocatoriasController::class);
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function(){
