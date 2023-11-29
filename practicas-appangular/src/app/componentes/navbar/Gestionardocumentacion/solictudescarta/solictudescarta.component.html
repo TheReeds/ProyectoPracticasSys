@@ -35,33 +35,23 @@
                   <th>Estudiante Nombre</th>
                   <th>Empresa</th>
                   <th>Especialidad</th>
-                  <th>Comentario</th>
+                  <th>estado</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Estudiante 1</td>
-                  <td>Empresa A</td>
+                <tr *ngFor="let solicitud of solicitudes">
+                  <td>{{ solicitud.nombreEstudiante }}</td>
+                  <td>{{ solicitud.nombreEmpresa }}</td>
                   <td>Especialidad X</td>
-                  <td>Algun comentario aquí</td>
+                  <td>{{ solicitud.estado }}</td>
                   <td>
                     <i class="far fa-eye details-icon" title="Ver Detalles"></i>
                     <i class="fas fa-check-circle check-icon" title="Marcar"></i>
                     <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
                   </td>
                 </tr>
-                <tr>
-                  <td>Estudiante 2</td>
-                  <td>Empresa B</td>
-                  <td>Especialidad Y</td>
-                  <td>Otro comentario aquí</td>
-                  <td>
-                    <i class="far fa-eye details-icon" title="Ver Detalles"></i>
-                    <i class="fas fa-check-circle check-icon" title="Marcar"></i>
-                    <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
-                  </td>
-                </tr>
+
                 <!-- Puedes agregar más filas según sea necesario -->
               </tbody>
             </table>
