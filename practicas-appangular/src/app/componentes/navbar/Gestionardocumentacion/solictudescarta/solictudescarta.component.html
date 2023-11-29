@@ -1,81 +1,71 @@
-
-<app-navbar><div navbar-content>
-  <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-      <meta charset="UTF-8">
-      <title>Gestión de Solicitud de Carta</title>
-      <!-- Link a Bootstrap CSS -->
-      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-      <!-- Link a FontAwesome para los iconos -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    </head>
-
-    <body>
+<app-navbar>
+  <div navbar-content>
+    <body class="container mx-auto">
       <div class="container">
-        <div class="card">
-          <div class="card-header">
-            <h2>Gestión de Solicitud de Carta</h2>
+        <div class="bg-white shadow-lg rounded-md p-6 text-center justify-center font-medium">
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold">Gestión de Solicitud de Carta</h2>
           </div>
-          <div class="search-bar">
+          <div class="mb-4">
             <!-- Barra de búsqueda -->
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar...">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">Buscar</button>
-              </div>
+            <div class="flex">
+              <input type="text" class="form-input mr-2" placeholder="Buscar...">
+              <button class="btn btn-primary" type="button">Buscar</button>
             </div>
           </div>
-          <div class="student-list">
+          <div class="mb-4">
             <!-- Lista de estudiantes -->
-            <table class="table table-bordered">
-              <thead>
+            <table class="table-auto w-full border bg-white shadow-md rounded-md">
+              <thead class="bg-blue-500 text-white py-2 px-2">
                 <tr>
-                  <th>Estudiante Nombre</th>
-                  <th>Empresa</th>
-                  <th>Especialidad</th>
-                  <th>estado</th>
-                  <th>Acciones</th>
+                  <th class="border p-2">Estudiante Nombre</th>
+                  <th class="border p-2">Empresa</th>
+                  <th class="border p-2">Especialidad</th>
+                  <th class="border p-2">Detalles</th>
+                  <th class="border p-2">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let solicitud of solicitudes">
-                  <td>{{ solicitud.nombreEstudiante }}</td>
-                  <td>{{ solicitud.nombreEmpresa }}</td>
-                  <td>Especialidad X</td>
-                  <td>{{ solicitud.estado }}</td>
-                  <td>
-                    <i class="far fa-eye details-icon"(click)="mostrarDetalles(solicitud)" title="Ver Detalles"></i>
-                    <i class="fas fa-check-circle check-icon" title="Marcar"></i>
-                    <i class="fas fa-times-circle delete-icon" title="Eliminar"></i>
+                <tr *ngFor="let solicitud of solicitudes" class="border">
+                  <td class="p-2">{{ solicitud.nombreEstudiante }}</td>
+                  <td class="p-2">{{ solicitud.nombreEmpresa }}</td>
+                  <td class="p-2">Especialidad X</td>
+                  <td class="p-2">
+                    <a class="cursor-pointer" (click)="mostrarDetalles(solicitud)" title="Ver Detalles">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="blue" class="w-6 h-6 mx-auto svg-blue hover:svg-black">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                      </svg>
+                    </a>
+                  </td>
+
+                  <td class="p-2 flex items-center">
+                    <a class="text-green-500 hover:text-green-700 cursor-pointer" title="Aprobar">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                    </a>
+                    <a class="text-red-500 hover:text-red-700 ml-2 cursor-pointer" title="Eliminar">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </a>
                   </td>
                 </tr>
-
-                <!-- Puedes agregar más filas según sea necesario -->
               </tbody>
             </table>
           </div>
-
-
-        </div>
-        <div class="detalle-container" *ngIf="solicitudSeleccionada">
-          <div class="detalle-card">
-            <h3>Detalles de la Solicitud</h3>
-            <p><strong>Estudiante:</strong> {{ solicitudSeleccionada.nombreEstudiante }}</p>
-            <p><strong>Empresa:</strong> {{ solicitudSeleccionada.nombreEmpresa }}</p>
-            <p><strong>Comentario:</strong> {{ solicitudSeleccionada.comentarios }}</p>
-            <!-- Agrega más detalles según sea necesario -->
-            <button type="button" class="btn btn-primary" (click)="cerrarDetalles()">Cerrar Detalles</button>
-          </div>
         </div>
       </div>
-
-      <!-- Script para Bootstrap JS (opcional si necesitas funcionalidades de Bootstrap) -->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <div class="detalle-container" *ngIf="solicitudSeleccionada">
+        <div class="detalle-card bg-white shadow-lg rounded-md p-6">
+          <h3 class="text-xl font-bold mb-4">Detalles de la Solicitud</h3>
+          <p><strong>Estudiante:</strong> {{ solicitudSeleccionada.nombreEstudiante }}</p>
+          <p><strong>Empresa:</strong> {{ solicitudSeleccionada.nombreEmpresa }}</p>
+          <p><strong>Comentario:</strong> {{ solicitudSeleccionada.comentarios }}</p>
+          <p><strong>Estado:</strong>{{ solicitudSeleccionada.estado }}</p>
+          <button type="button" class="bg-red-700 text-white border py-2 px-4 rounded-md hover:bg-white hover:text-black" (click)="cerrarDetalles()">Cerrar Detalles</button>
+        </div>
+      </div>
     </body>
-
-    </html>
-
-</div></app-navbar>
-
+  </div>
+</app-navbar>

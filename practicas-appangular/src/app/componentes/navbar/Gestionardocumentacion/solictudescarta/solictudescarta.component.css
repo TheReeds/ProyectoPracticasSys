@@ -68,3 +68,11 @@ body {
 .detalle-card {
   text-align: left;
 }
+.svg-blue {
+  fill: rgb(99, 99, 236);
+  transition: fill 0.3s ease; /* Transición suave */
+}
+
+.svg-blue:hover {
+  fill: black;
+}
