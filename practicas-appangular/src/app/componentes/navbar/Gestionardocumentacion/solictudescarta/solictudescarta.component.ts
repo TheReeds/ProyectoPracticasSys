@@ -75,6 +75,37 @@ export class SolictudescartaComponent implements OnInit {
       }
     );
   }
+
+  eliminarSolicitud(solicitud: any): void {
+    const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar esta solicitud?');
+
+    if (confirmacion) {
+      // Lógica para eliminar la solicitud, por ejemplo, utilizando el servicio
+      this.GestionardocumentacionService.eliminarSolicitudCarta(solicitud.id).subscribe(
+        () => {
+          // Eliminación exitosa, actualiza la lista de solicitudes
+          this.obtenerSolicitudes();
+        },
+        error => {
+          console.error('Error al eliminar la solicitud:', error);
+        }
+      );
+    }
+  }
+
+  buscarEstudiantes(event: Event): void {
+    const termino = (event.target as HTMLInputElement)?.value;
+    if (termino.trim() !== '') {
+      // Filtra las solicitudes que coinciden con el término de búsqueda
+      this.solicitudes = this.solicitudes.filter(solicitud =>
+        solicitud.nombreEstudiante.toLowerCase().includes(termino.toLowerCase())
+      );
+    } else {
+      // Si el término de búsqueda está vacío, vuelve a cargar todas las solicitudes
+      this.obtenerSolicitudes();
+    }
+  }
+
   mostrarDetalles(solicitud: any): void {
     this.solicitudSeleccionada = solicitud;
   }
