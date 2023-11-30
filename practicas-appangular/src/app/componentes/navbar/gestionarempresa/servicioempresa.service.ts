@@ -46,6 +46,10 @@ export class ServicioempresaService {
     const url = `${this.apiUrl}/${empresaId}`;
     return this.http.put<any>(url, newData);
   }
+  updateEmpresa2(empresaId: number, newData: any): Observable<any> {
+    const url = `${this.apiUrl}/${empresaId}`;
+    return this.http.put<any>(url, newData);
+  }
   // Agrega otros métodos según tus necesidades (PUT, DELETE, etc.)
 
 }
