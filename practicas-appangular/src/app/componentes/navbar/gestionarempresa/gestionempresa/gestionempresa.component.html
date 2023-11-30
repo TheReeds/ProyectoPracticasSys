@@ -37,6 +37,7 @@
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg py-4">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
         <tr>
           <th scope="col" class="px-6 py-3 text-blue-50 bg-blue-950">
             ID
@@ -63,59 +64,34 @@
         </tr>
       </thead>
       <tbody>
+
+
         <!-- Fila de ejemplo con numeración y checkbox -->
-        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+        <tr *ngFor="let empresa of responseData" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
           <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            1 <!-- Número de fila -->
+            {{ empresa.id }} <!-- Número de fila -->
           </td>
           <td class="px-6 py-4">
             <input type="checkbox" class="form-checkbox text-blue-600 dark:text-blue-400" />
-            Apple MacBook Pro 17"
+            {{ empresa.razonsocial }}
           </td>
           <td class="px-6 py-4">
-            Silver
+            {{ empresa.direccion }}
           </td>
           <td class="px-6 py-4">
-            Laptop
+            {{ empresa.email }}
           </td>
           <td class="px-6 py-4">
-            $2999
+            {{ empresa.ruc }}
           </td>
           <td class="px-6 py-4">
-            999939499
+            {{ empresa.telefono }}
           </td>
           <td class="px-2 py-4 flex space-x-4">
             <a href="#" class="font-medium text-white bg-blue-600 dark:text-white dark:bg-blue-500 hover:underline py-2 px-4 rounded">Edit</a>
             <a href="#" class="font-medium text-white bg-red-600 dark:text-white dark:bg-red-500 hover:underline py-2 px-4 rounded">Borrar</a>
           </td>
         </tr>
-
-        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-          <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            2 <!-- Número de fila -->
-          </td>
-          <td class="px-6 py-4">
-            <input type="checkbox" class="form-checkbox text-blue-600 dark:text-blue-400" />
-            Apple MacBook Pro 17"
-          </td>
-          <td class="px-6 py-4">
-            Silver
-          </td>
-          <td class="px-6 py-4">
-            Laptop
-          </td>
-          <td class="px-6 py-4">
-            $2999
-          </td>
-          <td class="px-6 py-4">
-            999992999
-          </td>
-          <td class="px-2 py-4 flex space-x-4">
-            <a href="#" class="font-medium text-white bg-blue-600 dark:text-white dark:bg-blue-500 hover:underline py-2 px-4 rounded">Edit</a>
-            <a href="#" class="font-medium text-white bg-red-600 dark:text-white dark:bg-red-500 hover:underline py-2 px-4 rounded">Borrar</a>
-          </td>
-        </tr>
-
         <!-- ... Otras filas de la tabla ... -->
       </tbody>
     </table>
@@ -150,35 +126,8 @@
       </li>
     </ul>
   </nav>
-
 </div>
-
-
-
-
-
 </div></app-navbar>
 
 <!--FOOTER-->
-
-<footer class="bg-blue-900 rounded-lg shadow m-4 dark:bg-blue-900">
-  <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-    <span class="text-sm text-blue-50 sm:text-center dark:text-blue-50">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-  </span>
-  <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-blue-50 dark:text-blue-50 sm:mt-0">
-      <li>
-          <a href="#" class="hover:underline me-4 md:me-6">About</a>
-      </li>
-      <li>
-          <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-      </li>
-      <li>
-          <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-      </li>
-      <li>
-          <a href="#" class="hover:underline">Contact</a>
-      </li>
-  </ul>
-  </div>
-</footer>
 
