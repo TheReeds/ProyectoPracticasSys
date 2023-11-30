@@ -13,7 +13,7 @@ export class CartaPresentacionComponent {
   Formulario = false;
   mostrarFormulario() {
     // Añadir un nuevo formulario al arreglo
-    this.Formulario=true;
+    this.Formulario=true
   }
 
   cerrarFormulario() {
