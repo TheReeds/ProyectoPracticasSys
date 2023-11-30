@@ -21,7 +21,7 @@ class EmpresaFactory extends Factory
         return [
             'razon_social'=> $nameempresa,
             'email'=> $this->faker->companyEmail(),
-
+            'ubicacion' => $this->faker->city(),
             'direccion'=> $this->faker->streetAddress(),
             'ruc'=> $type,
             'telefono'=> $this->faker->phoneNumber()
