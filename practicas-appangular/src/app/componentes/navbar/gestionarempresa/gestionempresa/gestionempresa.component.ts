@@ -17,7 +17,7 @@ import { ServicioempresaService } from '../servicioempresa.service';
 })
 export class GestionempresaComponent{
 
-  responseData: any[] = [];
+  responseData: any;
 
   constructor(private apiService: ServicioempresaService) { }
 
@@ -27,15 +27,17 @@ export class GestionempresaComponent{
 
   getData(): void {
     this.apiService.getData().subscribe(
-      (response) => {
-        // Asumiendo que la respuesta tiene una propiedad 'data' que es un arreglo
-        this.responseData = response.data;
+      response => { this.responseData = response.data;
+
+
+        console.log('datos',this.responseData);
+
+
       },
       (error) => {
         console.error('Error al obtener datos:', error);
       }
     );
-    console.log('estee',this.responseData);
   }
 
 }
