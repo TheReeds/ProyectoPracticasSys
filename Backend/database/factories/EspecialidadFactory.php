@@ -16,10 +16,10 @@ class EspecialidadFactory extends Factory
      */
     public function definition(): array
     {
-        $name=$this->faker->jobTitle();
+        $area = $this->faker->randomElement(['Tecnologia','Recursos Humanos','Administracion','Infraestructura']);
         return [
-            'name'=>$name,
-            'area'=>$this->faker->text(50),
+            'nombre'=>$this->faker->jobTitle(),
+            'area'=>$area,
             'descripcion'=>$this->faker->text(50),
 
             //

@@ -17,6 +17,7 @@ export class RegisterComponent {
   name: string = '';
   email: string = '';
   password: string = '';
+  rol: string = '';
   //role: string = 'alumno'; // Default role
   selectedRole: string = ''; // Modelo para almacenar la opción seleccionada
 
@@ -30,48 +31,31 @@ export class RegisterComponent {
 
   // ... (otros códigos y lógica de tu componente) ...
 
-  onSubmit(form: NgForm) {
-    console.log('Rol seleccionado:', this.selectedRole);
-    // Reiniciar errores y otros pasos del registro
-    this.errorMessage = null;
-    this.incompleteFieldsError = null;
-
-    // Puedes usar el valor de selectedRole aquí según tus necesidades
-    const { name, email, password} = form.value;
-
-    if (!name || !email || !password) {
-      this.incompleteFieldsError = 'Por favor, complete todos los campos.';
-      this.showNotification = true;
-      return;
+  onSubmit(registerForm: NgForm): void {
+    console.log('Selected Role:', this.selectedRole);
+    // Verificar si el formulario es válido
+    if (registerForm.valid) {
+      // Llamar al método register del servicio de autenticación
+      this.authService.register(this.name, this.email, this.password, this.selectedRole).subscribe(
+        (response: any) => {
+          // Manejar la respuesta exitosa
+          console.log('Registro exitoso:', response);
+          this.router.navigate(['/login']);
+        },
+        (errorMessage) => {
+          // Manejar el mensaje de error y mostrarlo al usuario
+          this.errorMessage = errorMessage;
+          this.showNotification = true;
+          console.error('Error durante el registro:', errorMessage);
+        }
+      );
+    } else {
+      this.incompleteFieldsError = 'Por favor, completa todos los campos del formulario.';
     }
-
-    this.authService.register(name, email, password).subscribe(
-      (response: any) => {
-        // Manejar la respuesta exitosa
-
-        console.log('Registro exitoso:', response);
-        this.router.navigate(['/login']);
-
-        // Puedes redirigir a otra página o realizar acciones adicionales aquí
-      },
-      (errorMessage) => {
-
-        this.errorMessage = errorMessage;
-        this.showNotification = true;
-        // Manejar el mensaje de error y mostrarlo al usuario
-        console.error('Error durante el registro:', errorMessage);
-
-
-        // Aquí puedes mostrar el mensaje de error al usuario, por ejemplo:
-        // this.errorMessage = errorMessage;
-      }
-    );
-
-
-
-
   }
-  closeNotification() {
+  closeNotification(): void {
     this.showNotification = false;
-  };
+    this.incompleteFieldsError = '';
+    this.errorMessage = '';
+  }
 }

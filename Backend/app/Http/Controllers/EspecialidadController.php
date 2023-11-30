@@ -30,7 +30,9 @@ class EspecialidadController extends Controller
  public function store(Request $request)
  {
      $request->validate([
-         'name' => 'required',
+         'nombre' => 'required',
+         'area' => 'required',
+         'descripcion' => 'string'
 
          // ... otras reglas de validación ...
      ]);
@@ -43,7 +45,9 @@ class EspecialidadController extends Controller
  public function update(Request $request, $id)
  {
      $request->validate([
-         'name' => 'required',
+        'nombre' => 'required',
+        'area' => 'required',
+        'descripcion' => 'string'
          // ... otras reglas de validación ...
      ]);
 

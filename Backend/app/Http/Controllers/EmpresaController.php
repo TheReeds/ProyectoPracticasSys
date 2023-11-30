@@ -77,6 +77,7 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa)
     {
-        //
+        $empresa->delete();
+        return response()->json(['message' => 'Empresa eliminada exitosamente']);
     }
 }
