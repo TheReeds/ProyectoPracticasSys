@@ -5,7 +5,7 @@
 
   <div class="flex justify-between mt-3">
     <div>
-      <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">AGREGAR NUEVA EMPRESA</button>
+      <button (click)="mostrarFormularioNuevaEmpresa()" type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">AGREGAR NUEVA EMPRESA</button>
     </div>
 
     <form>
@@ -76,7 +76,7 @@
             {{ empresa.razonsocial }}
           </td>
           <td class="px-6 py-4">
-            {{ empresa.razonsocial }}
+            {{ empresa.direccion }}
           </td>
           <td class="px-6 py-4">
             {{ empresa.email }}
@@ -88,8 +88,10 @@
             {{ empresa.telefono }}
           </td>
           <td class="px-2 py-4 flex space-x-4">
-            <a href="#" class="font-medium text-white bg-blue-600 dark:text-white dark:bg-blue-500 hover:underline py-2 px-4 rounded">Edit</a>
-            <a href="#" class="font-medium text-white bg-red-600 dark:text-white dark:bg-red-500 hover:underline py-2 px-4 rounded">Borrar</a>
+            <a (click)="mostrarFormularioEdicion(empresa.id)"
+              class="font-medium text-white bg-blue-600 dark:text-white dark:bg-blue-500 hover:underline py-2 px-4 rounded">Edit</a>
+            <a (click)="confirmarBorradoEmpresa(empresa.id)"
+              class="font-medium text-white bg-red-600 dark:text-white dark:bg-red-500 hover:underline py-2 px-4 rounded">Borrar</a>
           </td>
         </tr>
         <!-- ... Otras filas de la tabla ... -->
@@ -127,6 +129,103 @@
     </ul>
   </nav>
 </div>
+<div *ngIf="mostrarFormulario" class="modal-overlay">
+  <div class="modal-container bg-white p-8 rounded-lg shadow-md">
+    <!-- Agregar formulario aquí -->
+    <form (submit)="crearNuevaEmpresa()">
+      <!-- Campos del formulario -->
+      <div class="mb-4">
+        <label for="razonSocial" class="block text-sm font-medium text-gray-700">Razón Social:</label>
+        <input type="text" id="razonSocial" name="razonSocial" [(ngModel)]="nuevaEmpresa.razonsocial" required
+          class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+      </div>
+
+      <!-- Agregar otros campos del formulario -->
+      <div class="mb-4">
+        <label for="direccion" class="block text-sm font-medium text-gray-700">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" [(ngModel)]="nuevaEmpresa.direccion" required
+          class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+      </div>
+
+      <div class="mb-4">
+        <label for="ubicacion" class="block text-sm font-medium text-gray-700">Ubicación:</label>
+        <input type="text" id="ubicacion" name="ubicacion" [(ngModel)]="nuevaEmpresa.ubicacion" required
+          class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+      </div>
+
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="nuevaEmpresa.email" required
+          class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+      </div>
+
+      <div class="mb-4">
+        <label for="ruc" class="block text-sm font-medium text-gray-700">RUC:</label>
+        <input type="text" id="ruc" name="ruc" [(ngModel)]="nuevaEmpresa.ruc" required
+          class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+      </div>
+
+      <div class="mb-4">
+        <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" [(ngModel)]="nuevaEmpresa.telefono" required
+          class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+      </div>
+
+      <!-- Botón para enviar el formulario -->
+      <button type="submit"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md px-4 py-2">Crear Nueva Empresa</button>
+    </form>
+    <button type="button" (click)="cerrarFormulario()"
+      class="mt-4 bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium rounded-md px-4 py-2">Cerrar</button>
+  </div>
+</div>
+<div *ngIf="mostrarFormulario2" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-md shadow-md">
+  <!-- Campos del formulario de edición -->
+  <div class="mb-4">
+    <label for="editRazonSocial" class="block text-sm font-medium text-gray-700">Razón Social:</label>
+    <input type="text" id="editRazonSocial" name="editRazonSocial" [(ngModel)]="empresaEnEdicion.razonsocial" required
+      class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+  </div>
+  <div class="mb-4">
+    <label for="editDireccion" class="block text-sm font-medium text-gray-700">Dirección:</label>
+    <input type="text" id="editRazonSocial" name="editDireccion" [(ngModel)]="empresaEnEdicion.direccion" required
+      class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+  </div>
+  <div class="mb-4">
+    <label for="editUbicacion" class="block text-sm font-medium text-gray-700">Ubicación:</label>
+    <input type="text" id="editRazonSocial" name="editUbicacion" [(ngModel)]="empresaEnEdicion.ubicacion" required
+      class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+  </div>
+  <div class="mb-4">
+    <label for="editEmail" class="block text-sm font-medium text-gray-700">Email:</label>
+    <input type="text" id="editRazonSocial" name="editEmail" [(ngModel)]="empresaEnEdicion.email" required
+      class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+  </div>
+  <div class="mb-4">
+    <label for="editRuc" class="block text-sm font-medium text-gray-700">Ruc:</label>
+    <input type="text" id="editRazonSocial" name="editRuc" [(ngModel)]="empresaEnEdicion.ruc" required
+      class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+  </div>
+  <div class="mb-4">
+    <label for="editTelefono" class="block text-sm font-medium text-gray-700">Telefono:</label>
+    <input type="text" id="editRazonSocial" name="editTelefono" [(ngModel)]="empresaEnEdicion.telefono" required
+      class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+  </div>
+
+
+  <!-- Agregar otros campos del formulario de edición -->
+  <!-- ... -->
+
+  <!-- Botón para actualizar la empresa -->
+  <button (click)="actualizarEmpresa()"
+    class="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md px-4 py-2">Actualizar Empresa</button>
+
+  <!-- Botón para cerrar el formulario -->
+  <button (click)="cerrarFormulario()"
+    class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium rounded-md px-4 py-2 ml-2">Cancelar</button>
+</div>
+
+
 </div></app-navbar>
 
 <!--FOOTER-->

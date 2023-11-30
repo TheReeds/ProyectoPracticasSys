@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('direccion');
             $table->string('email');
             $table->bigInteger('ruc');
+            $table->string('ubicacion');
             $table->string('telefono');
             $table->timestamps();
         });
