@@ -19,7 +19,9 @@ class PlanPracticasFactory extends Factory
         $modalidad = ['presencial','virtual'];
         $turno = ['mañana','tarde','noche','libre'];
         $tiempo_informe = ['diaro','semanal','mensual'];
+        $alumnoIds = Alumno::pluck('id')->toArray();
         return [
+            'practicante_id'=> $this->faker->randomElement($alumnoIds),
             'fecha_inicio_plan'=> $this->faker->date(),
             'fecha_fin_plan'=> $this->faker->date(),
             'horas_planificadas'=> $this->faker->numberBetween(60,150),
