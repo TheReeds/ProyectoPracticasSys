@@ -12,6 +12,7 @@ import { RegisterComponent } from './componentes/login/register/register.compone
 import { InterfazComponent } from './componentes/login/interfaz/interfaz.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -28,6 +29,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+
+
 
 
 

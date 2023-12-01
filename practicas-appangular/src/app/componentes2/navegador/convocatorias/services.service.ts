@@ -25,4 +25,7 @@ export class ServicesService {
   deleteSolicitud(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+  getDataConvocatorias(): Observable<any> {
+    return this.http.get<any>('http://127.0.0.1:8000/api/convocatorias');
+  }
 }

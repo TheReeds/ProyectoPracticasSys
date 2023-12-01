@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,6 +40,9 @@ export class GestionardocumentacionService {
   private apiUrl3 = 'http://127.0.0.1:8000/api';
   getEmpresaInfo(empresaId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl3}/empresas/${empresaId}`);
+  }
+  getEspecialidadInfo(id: number): Observable<any> {
+    return this.http.get(`http://127.0.0.1:8000/api/especialidades/${id}`);
   }
 
 }

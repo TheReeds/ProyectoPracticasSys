@@ -1,5 +1,6 @@
 <app-navbar-estudiante>
   <div navbarestudiante-content>
+
     <body class="bg-gray-100 text-gray-800 font-sans">
       <div class="container mx-auto">
         <div class="card bg-white shadow-lg rounded-md">
@@ -8,36 +9,86 @@
           </div>
           <div class="card-body p-8 text-lg">
             <div class="flex justify-between mb-8">
-              <img src="https://www.elitelaboral.com/site/wp-content/uploads/2021/05/VACANTE-PRACTICANTE-DE-SISTEMAS.jpg" alt="La imagen es gozu"
-                class="w-1/3 rounded-md">
-              <img src="https://4.bp.blogspot.com/-6IpI4w1KTSs/WdVj_wIJ4FI/AAAAAAAAucs/OZKrciWQHXoeZvccbhZGJlyNlIFSayc7QCLcBGAs/s640/22195463_2026321924272469_7381899950986369031_n.jpg"
+              <img
+                src="https://www.elitelaboral.com/site/wp-content/uploads/2021/05/VACANTE-PRACTICANTE-DE-SISTEMAS.jpg"
                 alt="La imagen es gozu" class="w-1/3 rounded-md">
-              <img src="https://clasificados.debate.com.mx/__export/1585349974772/sites/clasificados/img/2020/03/27/Guest_20200327_155933308_995611.jpg_627809440.jpg"
+              <img
+                src="https://4.bp.blogspot.com/-6IpI4w1KTSs/WdVj_wIJ4FI/AAAAAAAAucs/OZKrciWQHXoeZvccbhZGJlyNlIFSayc7QCLcBGAs/s640/22195463_2026321924272469_7381899950986369031_n.jpg"
+                alt="La imagen es gozu" class="w-1/3 rounded-md">
+              <img
+                src="https://clasificados.debate.com.mx/__export/1585349974772/sites/clasificados/img/2020/03/27/Guest_20200327_155933308_995611.jpg_627809440.jpg"
                 alt="La imagen es gozu" class="w-1/3 rounded-md">
             </div>
             <div class="p-4 bg-gray-300 mb-9 rounded-sm">
               <p class="card-text text-center">
-                Obtén tu carta de presentación para prácticas pre profesionales en nuestra plataforma. Solicítala fácilmente y recibe una versión
+                Obtén tu carta de presentación para prácticas pre profesionales en nuestra plataforma. Solicítala
+                fácilmente y recibe una versión
                 personalizada. ¡Comienza tu camino hacia el éxito profesional ahora mismo!🤓😈
               </p>
             </div>
             <div class="flex items-center justify-center mt-8 space-x-4">
-              <button class="btn btn-primaryd bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
-                onclick="mostrarFormulario()">Generar Carta de Presentación</button>
-              <button class="btn btn-secondary bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
+              <button
+                class="btn btn-primaryd bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
+                (click)="mostrarFormulario()">Generar Carta de Presentación</button>
+              <button
+                class="btn btn-secondary bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
                 onclick="mostrarFormulario()">Descargar</button>
-              <button class="btn btn-info bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
+              <button
+                class="btn btn-info bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
                 onclick="mostrarFormulario()">Adjuntar Carta</button>
-              <button class="btn btn-primary bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
+              <button
+                class="btn btn-primary bg-gray-800 text-white py-4 px-4 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring focus:border-blue-300"
                 onclick="mostrarFormulario()">Registrar Nueva Carta</button>
             </div>
           </div>
         </div>
+      </div>
+      <div *ngIf="Formulario">
+        <div class="alerta-fondo"></div>
+        <div
+          class="formulario-container fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black rounded-md shadow-md">
+          <form>
 
-        <!-- Formulario oculto -->
-        <div id="formulario" class="hidden bg-white p-8 rounded-md mt-8">
-          <h2 class="text-gray-800 text-2xl mb-4">Llenar Formulario</h2>
-          <!-- Aquí puedes agregar los campos del formulario -->
+            <body class="bg-gray-100">
+              <div class="container mx-auto my-8 p-8 bg-white rounded-md shadow-md">
+                <h2 class="text-3xl font-bold mb-6">Generar Carta de Presentación</h2>
+                <form>
+                  <div class="mb-4">
+                    <label for="especialidad" class="block text-sm font-semibold mb-2">Especialidad:</label>
+                    <select
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-100 focus:outline-none focus:border-indigo-500">
+                      <option>Opción 1</option>
+                      <option>Opción 2</option>
+                      <option>Opción 3</option>
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label for="empresa" class="block text-sm font-semibold mb-2">Empresa:</label>
+                    <select
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-100 focus:outline-none focus:border-indigo-500">
+                      <option>Opción 1</option>
+                      <option>Opción 2</option>
+                      <option>Opción 3</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="comentario" class="block text-sm font-semibold mb-2">Comentario:</label>
+                    <textarea
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-100 focus:outline-none focus:border-indigo-500"
+                      rows="4" id="comentario"></textarea>
+                  </div>
+
+                  <div class="flex">
+                    <button type="submit"
+                      class="bg-indigo-500 text-white px-6 py-2 rounded-md mr-2 hover:bg-indigo-600">Enviar</button>
+                    <button type="button"
+                      class="border border-indigo-500 text-indigo-500 px-6 py-2 rounded-md hover:bg-indigo-100">Volver</button>
+                  </div>
+                </form>
+              </div>
+            </body>
+          </form>
         </div>
       </div>
     </body>

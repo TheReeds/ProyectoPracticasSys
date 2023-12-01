@@ -1,7 +1,7 @@
 <app-navbar><div navbar-content>
   <!-- TODO TU CRUD O CONTENIDO AQUI -->
 
-  <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+  <button (click)="mostrarFormularioNuevaEspecialidad()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
     <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
     Agregar Nueva Especialidad
     </span>
@@ -26,15 +26,15 @@
               </tr>
           </thead>
           <tbody>
-              <tr class="bg-blue-600 border-b border-blue-400">
+              <tr *ngFor="let especialidad of especialidades"  class="bg-blue-600 border-b border-blue-400">
                   <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
-                    Desarrollo de Software:
+                    {{ especialidad.nombre }}
                   </th>
                   <td class="px-6 py-4">
-                    Desarrollo Frontend
+                    {{ especialidad.area }}
                   </td>
                   <td class="px-6 py-4 bg-blue-500">
-                      Laptop
+                    {{ especialidad.descripcion }}
                   </td>
 
                   <td class="px-6 py-4 bg-blue-600">
@@ -42,121 +42,64 @@
                       <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                           Editar
                         </button>
-                        <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                        <button (click)="mostrarModal(especialidad)" type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                           Eliminar
                       </button>
                     </div>
 
                   </td>
               </tr>
-              <tr class="bg-blue-600 border-b border-blue-400">
-                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
-                    Gestión de Proyectos de TI:
-                  </th>
-                  <td class="px-6 py-4">
-                    Metodologías
-                  </td>
-                  <td class="px-6 py-4 bg-blue-500">
-                      Laptop PC
-                  </td>
 
-                  <td class="px-6 py-4 bg-blue-600">
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                      Editar
-                    </button>
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                      Eliminar
-                  </button>
-                  </td>
-              </tr>
-              <tr class="bg-blue-600 border-b border-blue-400">
-                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
-                    Ciberseguridad:
-                  </th>
-                  <td class="px-6 py-4">
-                      Black
-                  </td>
-                  <td class="px-6 py-4 bg-blue-500">
-                      Accessories
-                  </td>
 
-                  <td class="px-6 py-4 bg-blue-600">
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                      Editar
-                    </button>
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                      Eliminar
-                  </button>
-                  </td>
-              </tr>
-              <tr class="bg-blue-600 border-b border-blue-400">
-                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
-                    Big Data y Ciencia de Datos:
-                  </th>
-                  <td class="px-6 py-4">
-                      Gray
-                  </td>
-                  <td class="px-6 py-4 bg-blue-500">
-                      Phone
-                  </td>
-
-                  <td class="px-6 py-4 bg-blue-600">
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                      Editar
-                    </button>
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                      Eliminar
-                  </button>
-                  </td>
-              </tr>
-              <tr class="bg-blue-600 border-blue-40">
-                  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
-                      Telecomunicaciones:
-                  </th>
-                  <td class="px-6 py-4">
-                      Red
-                  </td>
-                  <td class="px-6 py-4 bg-blue-500">
-                      Wearables
-                  </td>
-
-                  <td class="px-6 py-4 bg-blue-600">
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                      Editar
-                    </button>
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                      Eliminar
-                  </button>
-                  </td>
-              </tr>
           </tbody>
       </table>
+    </div>
+    <div *ngIf="mostrarFormulario" class="modal-overlay">
+      <div class="modal-container bg-white p-8 rounded-lg shadow-md">
+        <!-- Agregar formulario aquí -->
+        <form (submit)="crearEspecialidad()">
+          <!-- Campos del formulario -->
+          <div class="mb-4">
+            <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre Especialidad:</label>
+            <input type="text" id="razonSocial" name="razonSocial" [(ngModel)]="nuevaEspecialidad.nombre" required
+              class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+          </div>
+
+          <!-- Agregar otros campos del formulario -->
+          <div class="mb-4">
+            <label for="area" class="block text-sm font-medium text-gray-700">Area:</label>
+            <input type="text" id="area" name="area" [(ngModel)]="nuevaEspecialidad.area" required
+              class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+          </div>
+
+          <div class="mb-4">
+            <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripcion:</label>
+            <input type="text" id="ubicacion" name="descripcion" [(ngModel)]="nuevaEspecialidad.descripcion" required
+              class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+          </div>
+
+
+          <!-- Botón para enviar el formulario -->
+          <button type="submit"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-md px-4 py-2">Crear Nueva Empresa</button>
+        </form>
+        <button type="button" (click)="cerrarFormulario()"
+          class="mt-4 bg-gray-300 hover:bg-gray-400 text-gray-700 font-medium rounded-md px-4 py-2">Cerrar</button>
+      </div>
+    </div>
+
+    <div *ngIf="mostrarModalConfirmacion" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+      <div class="bg-white p-4 rounded-lg">
+        <p class="text-lg font-medium mb-2">¿Estás seguro de que deseas eliminar esta especialidad?</p>
+        <div class="flex justify-end">
+          <button (click)="confirmarEliminacion()" class="text-white bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg">Sí</button>
+          <button (click)="cerrarModal()" class="text-gray-700 bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-lg ml-2">Cancelar</button>
+        </div>
+      </div>
     </div>
 
 </div></app-navbar>
 
- <!-- FOOTER-->
-
- <footer class="bg-blue-900 rounded-lg shadow m-4 dark:bg-blue-900">
-  <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-    <span class="text-sm text-blue-50 sm:text-center dark:text-blue-50">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-  </span>
-  <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-blue-50 dark:text-blue-50 sm:mt-0">
-      <li>
-          <a href="#" class="hover:underline me-4 md:me-6">About</a>
-      </li>
-      <li>
-          <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-      </li>
-      <li>
-          <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-      </li>
-      <li>
-          <a href="#" class="hover:underline">Contact</a>
-      </li>
-  </ul>
-  </div>
-</footer>
 
 
 

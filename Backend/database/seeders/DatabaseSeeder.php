@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             AlumnoSeeder::class,
             SolicitudCartaSeeder::class,
             PlanPracticasSeeder::class,
-            EspecialidadSeeder::class
+            EspecialidadSeeder::class,
+            NuevasempresasSeeder::class
 
         ]);
 

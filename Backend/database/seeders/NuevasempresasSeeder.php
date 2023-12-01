@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\cartapdf;
+use App\Models\nuevasempresas;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CartapdfSeeder extends Seeder
+class NuevasempresasSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        cartapdf::factory()->count(5)->create();
+        nuevasempresas::factory()->count(3)->create();
     }
 }

@@ -88,8 +88,8 @@ export class AuthServiceService {
     const token = this.getToken();
     return token !== null && token !== undefined;
   }
-  register(name: string, email: string, password: string): Observable<any> {
-    const body = { name, email, password };
+  register(name: string, email: string, password: string, rol: string): Observable<any> {
+    const body = { name, email, password, rol };
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.http.post(`${this.apiUrl}/register`, body, { headers })
@@ -113,7 +113,7 @@ export class AuthServiceService {
 
 
 
-  getUserName(): string | null {
+  /*V1---getUserName(): string | null {
     // Utiliza la información del usuario almacenada en userData o localStorage
     return this.userData ? this.userData.name : this.getStoredUserName();
   }
@@ -121,8 +121,45 @@ export class AuthServiceService {
   private getStoredUserName(): string | null {
     const storedUserData = localStorage.getItem('userData');
     return storedUserData ? JSON.parse(storedUserData).name : null;
+  }*/
+
+  getUserName(): string | null {
+    // Utiliza la información del usuario almacenada en userData o localStorage
+    const userName = this.userData ? this.userData.name : this.getStoredUserName();
+    return userName ? this.capitalizeFirstLetter(userName) : null;
   }
 
+  private getStoredUserName(): string | null {
+    const storedUserData = localStorage.getItem('userData');
+    const storedUserName = storedUserData ? JSON.parse(storedUserData).name : null;
+    return storedUserName ? this.capitalizeFirstLetter(storedUserName) : null;
+  }
+
+  getUserRole(): string | null {
+    // Utiliza la información del usuario almacenada en userData o localStorage
+    const userRole = this.userData ? this.userData.rol : this.getStoredUserRole();
+    return userRole ? this.capitalizeFirstLetter(userRole) : null;
+  }
+
+  private getStoredUserRole(): string | null {
+    const storedUserData = localStorage.getItem('userData');
+    const storedUserRole = storedUserData ? JSON.parse(storedUserData).rol : null;
+    return storedUserRole ? this.capitalizeFirstLetter(storedUserRole) : null;
+  }
+
+  /*V1--getUserRole(): string | null {
+    // Utiliza la información del usuario almacenada en userData o localStorage
+    return this.userData ? this.userData.rol : this.getStoredUserRole();
+  }
+
+  private getStoredUserRole(): string | null {
+    const storedUserData = localStorage.getItem('userData');
+    return storedUserData ? JSON.parse(storedUserData).rol : null;
+  }*/
+
+  capitalizeFirstLetter(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
 
 
 

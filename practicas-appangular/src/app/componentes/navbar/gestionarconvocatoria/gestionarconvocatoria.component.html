@@ -56,7 +56,7 @@
                 Eliminar
               </a>
 
-              <button class="bg-blue-500 hover:bg-white-700 text-white font-bold py-2 px-4 rounded hover:bg-blue-300">
+              <button (click)="activarEdicion(convocatoria.id)" class="bg-blue-500 hover:bg-white-700 text-white font-bold py-2 px-4 rounded hover:bg-blue-300">
                 Editar
               </button>
             </div>
@@ -65,8 +65,50 @@
 
 
         </tr>
+
       </tbody>
     </table>
+    <div *ngIf="convocatoriaEnEdicionId !== null" class="form-overlay">
+      <div class="edit-form py-2 px-8">
+        <a class="font-semibold text-lg py-5">Editar Convocatoria</a>
+        <form (ngSubmit)="guardarEdicion()">
+          <label>Imagen Actual</label>
+          <div>
+            <img *ngIf="convocatoriaEnEdicion.imagenes" [src]="apiUrlImagenes + convocatoriaEnEdicion.imagenes" alt="Imagen actual">
+            <span *ngIf="!convocatoriaEnEdicion.imagenes">No hay imagen actual</span>
+          </div>
+          <label for="nuevaImagen">Seleccionar Nueva Imagen</label>
+          <input type="file" id="nuevaImagen" (change)="cargarNuevaImagen($event)" accept="image/*">
+
+          <label>Título</label>
+          <input [(ngModel)]="convocatoriaEnEdicion.titulo" name="titulo" required>
+
+          <label>Descripción</label>
+          <input [(ngModel)]="convocatoriaEnEdicion.descripcion" name="descripcion" required>
+
+          <label>Empresa</label>
+          <select [(ngModel)]="convocatoriaEnEdicion.empresa.id" name="empresaId" required>
+            <option *ngFor="let empresa of empresas" [value]="empresa.id">{{ empresa.razonsocial }}</option>
+          </select>
+
+          <label>Fecha Inicio</label>
+          <input type="date" [(ngModel)]="convocatoriaEnEdicion.fechaInicio" name="fechaInicio" required>
+
+          <label>Fecha Fin</label>
+          <input type="date" [(ngModel)]="convocatoriaEnEdicion.fechaFin" name="fechaFin" required>
+
+          <!-- Otros campos del formulario -->
+
+          <div class="buttons font-medium">
+            <button type="button" class="bg-red-500 py-2 px-3 rounded-lg text-white hover:bg-red-300" (click)="cancelarEdicion()">Cancelar</button>
+            <button type="submit" class="bg-green-500 py-2 px-3 rounded-lg text-white hover:bg-green-300">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
   </div>
 
 

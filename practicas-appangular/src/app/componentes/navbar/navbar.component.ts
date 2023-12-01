@@ -16,9 +16,12 @@ export class NavbarComponent {
   sidebarOpen2 = false;
   sidebarOpen3 = false;
   userName: string | null = null;
+  userRole: string | null = null;
+
 
   ngOnInit() {
     this.userName = this.authService.getUserName();
+    this.userRole = this.authService.getUserRole();
   }
 
   toggleSidebar() {
