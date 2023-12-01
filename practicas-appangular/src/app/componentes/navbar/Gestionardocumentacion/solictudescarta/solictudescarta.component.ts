@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../navbar.component';
 import { GestionardocumentacionService } from '../gestionardocumentacion.service';
 import { catchError, forkJoin, of } from 'rxjs';
+import jsPDF from 'jspdf';
 
 
 @Component({
@@ -134,6 +135,39 @@ export class SolictudescartaComponent implements OnInit {
       this.obtenerSolicitudes();
     }
   }
+
+  generarYExportarPDF(solicitud: any) {
+    // Crea una nueva instancia de jsPDF
+    const pdf = new jsPDF();
+
+    // Define la posición y estilo del texto
+    const xPosition = 20;
+    let yPosition = 20;
+    const lineHeight = 10;
+
+    // Agrega el contenido al PDF con estilos personalizados
+    pdf.setFont('helvetica');  // Establece la fuente
+    pdf.setFontSize(12);
+
+    pdf.text(`Estudiante: ${solicitud.nombreEstudiante}`, xPosition, yPosition);
+    yPosition += lineHeight;
+
+    pdf.text(`Empresa: ${solicitud.nombreEmpresa}`, xPosition, yPosition);
+    yPosition += lineHeight;
+
+    pdf.text(`Especialidad: ${solicitud.especialidad}`, xPosition, yPosition);
+    yPosition += lineHeight;
+
+    pdf.text(`Comentario: ${solicitud.comentarios}`, xPosition, yPosition);
+    yPosition += lineHeight;
+
+    pdf.text(`Estado: ${solicitud.estado}`, xPosition, yPosition);
+
+    // Guarda el PDF con un nombre único
+    const nombrePDF = `CartaPresentacion_${solicitud.nombreEstudiante}_${new Date().toISOString()}.pdf`;
+    pdf.save(nombrePDF);
+  }
+
 
   mostrarDetalles(solicitud: any): void {
     this.solicitudSeleccionada = solicitud;
