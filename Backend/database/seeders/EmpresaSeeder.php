@@ -18,7 +18,7 @@ class EmpresaSeeder extends Seeder
         ->hasConvocatorias(1)
         ->create();
         Empresa::factory()
-        ->count(5)
+        ->count(3)
         ->create();
     }
 }

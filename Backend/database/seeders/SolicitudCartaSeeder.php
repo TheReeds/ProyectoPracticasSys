@@ -13,6 +13,6 @@ class SolicitudCartaSeeder extends Seeder
      */
     public function run(): void
     {
-        SolicitudCarta::factory()->count(5)->create();
+        SolicitudCarta::factory()->count(3)->create();
     }
 }

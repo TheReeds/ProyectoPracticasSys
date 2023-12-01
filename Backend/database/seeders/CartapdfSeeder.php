@@ -13,6 +13,6 @@ class CartapdfSeeder extends Seeder
      */
     public function run(): void
     {
-        cartapdf::factory()->count(10)->create();
+        cartapdf::factory()->count(5)->create();
     }
 }

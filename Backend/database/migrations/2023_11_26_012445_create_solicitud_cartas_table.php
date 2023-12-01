@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreign('cartapdfs_id')->references('id')->on('cartapdfs')->onDelete('cascade');
             $table->unsignedBigInteger('empresa_id')->nullable();
             $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
+            $table->unsignedBigInteger('especialidad_id')->nullable();
+            $table->foreign('especialidad_id')->references('id')->on('especialidads')->onDelete('cascade');
             $table->timestamps();
         });
     }

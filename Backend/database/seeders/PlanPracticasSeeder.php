@@ -13,6 +13,6 @@ class PlanPracticasSeeder extends Seeder
      */
     public function run(): void
     {
-        PlanPracticas::factory()->count(30)->create();
+        PlanPracticas::factory()->count(5)->create();
     }
 }

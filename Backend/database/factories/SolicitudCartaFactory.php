@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Alumno;
 use App\Models\cartapdf;
 use App\Models\Empresa;
+use App\Models\Especialidad;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,6 +26,7 @@ class SolicitudCartaFactory extends Factory
             'estudiante_id' => Alumno::factory(),
             'estado' => $this->faker->randomElement(['Aprobada', 'Pendiente', 'Rechazada']),
             'cartapdfs_id'=> cartapdf::factory(),
+            'especialidad_id'=> Especialidad::factory(),
             'empresa_id' => $empresa->id,
             'comentarios' => $this->faker->paragraph,
         ];
