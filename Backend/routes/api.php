@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\NuevasempresasController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ConvocatoriasController;
 use App\Http\Controllers\EmpresaController;
@@ -28,6 +29,7 @@ Route::apiResource('alumnos', AlumnoController::class);
 Route::apiResource('solicitudcartas', SolicitudCartaController::class);
 Route::apiResource('empresas', EmpresaController::class);
 Route::apiResource('especialidades', EspecialidadController::class);
+Route::apiResource('nuevasempresas', NuevasempresasController::class);
 
 
 Route::apiResource('convocatorias', ConvocatoriasController::class);
@@ -47,6 +49,7 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:sanctum'])->group(function () {
 Route::get('logout', [AuthController::class, 'logout']);
+
 });
 
 
