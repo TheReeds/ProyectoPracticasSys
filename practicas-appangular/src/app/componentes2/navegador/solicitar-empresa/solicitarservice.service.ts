@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class SolicitarserviceService {
   private apiUrl = 'http://127.0.0.1:8000/api/nuevasempresas';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getNuevasEmpresas(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}`);

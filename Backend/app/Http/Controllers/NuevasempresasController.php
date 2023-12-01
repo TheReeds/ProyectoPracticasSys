@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\nuevasempresas;
 use App\Http\Controllers\Controller;
+use App\Models\Alumno;
 use Illuminate\Http\Request;
 
 class NuevasempresasController extends Controller
@@ -27,7 +28,16 @@ class NuevasempresasController extends Controller
 
     public function store(Request $request)
     {
-        $nuevaEmpresa = NuevasEmpresas::create($request->all());
+        // Obtener un ID aleatorio de la tabla alumnos
+        $randomAlumnoId = Alumno::inRandomOrder()->value('id');
+
+        // Asignar el ID aleatorio como alumno_id
+        $data = $request->all();
+        $data['alumno_id'] = $randomAlumnoId;
+
+        // Crear la nueva empresa
+        $nuevaEmpresa = NuevasEmpresas::create($data);
+
         return response()->json($nuevaEmpresa, 201);
     }
 
