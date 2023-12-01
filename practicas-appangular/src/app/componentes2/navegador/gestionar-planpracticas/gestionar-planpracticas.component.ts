@@ -74,4 +74,30 @@ export class GestionarPlanpracticasComponent {
   }
 
 
+
+
+  ngOnInit() {
+    // Supongamos que ya tienes el identificador único del alumno (alumnoId)
+    const alumnoId = '123';
+
+    // Verificar si el alumno ya tiene un plan
+    this.servicio.verificarPlanExistente(alumnoId).subscribe(
+      (tienePlan) => {
+        if (tienePlan) {
+          // El alumno ya tiene un plan, puedes manejarlo aquí
+          console.log('El alumno ya tiene un plan de prácticas.');
+          // Puedes deshabilitar el formulario o mostrar un mensaje, etc.
+        } else {
+          // El alumno no tiene un plan, puede proceder a crear uno nuevo
+          console.log('El alumno no tiene un plan de prácticas.');
+        }
+      },
+      (error) => {
+        console.error('Error al verificar el plan de prácticas:', error);
+      }
+    );
+  }
+
+
+
 }

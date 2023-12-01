@@ -34,6 +34,14 @@ export class GestionarplanService {
   }
 
 
+  verificarPlanExistente(alumnoId: string): Observable<boolean> {
+    // Lógica para verificar si el alumno ya tiene un plan de prácticas
+    // Puedes hacer una solicitud HTTP aquí o utilizar otro método
+    // Devuelve un Observable<boolean> indicando si ya tiene un plan o no
+    // Este método debe adaptarse a tu lógica de identificación de alumno
+    // Por ejemplo, puedes pasar el ID del alumno como parámetro en la URL
+    return this.http.get<boolean>(`${this.apiUrl}/verificar/${alumnoId}`);
+  }
 
 
 }

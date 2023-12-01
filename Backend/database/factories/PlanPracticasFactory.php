@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\Alumno;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -16,10 +17,13 @@ class PlanPracticasFactory extends Factory
      */
     public function definition(): array
     {
+        $alumnoIds = Alumno::pluck('id')->toArray();
         $modalidad = ['presencial','virtual'];
         $turno = ['mañana','tarde','noche','libre'];
         $tiempo_informe = ['diaro','semanal','mensual'];
+
         return [
+            'practicante_id'=> $this->faker->randomElement($alumnoIds),
             'fecha_inicio_plan'=> $this->faker->date(),
             'fecha_fin_plan'=> $this->faker->date(),
             'horas_planificadas'=> $this->faker->numberBetween(60,150),

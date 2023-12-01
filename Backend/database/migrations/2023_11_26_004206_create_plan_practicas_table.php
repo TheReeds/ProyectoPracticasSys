@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('plan_practicas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('practicante_id');
+            $table->foreign('practicante_id')->references('id')->on('alumnos')->onDelete('cascade');
             $table->date('fecha_inicio_plan');
             $table->date('fecha_fin_plan');
             $table->integer('horas_planificadas');
