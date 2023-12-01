@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../navbar.component';
 import { GestionardocumentacionService } from '../gestionardocumentacion.service';
-import { forkJoin } from 'rxjs';
+import { catchError, forkJoin, of } from 'rxjs';
 
 
 @Component({
@@ -21,13 +21,16 @@ export class SolictudescartaComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerSolicitudes();
+    this.obtenerInfoEspecialidades();
   }
 
   obtenerSolicitudes(): void {
     this.GestionardocumentacionService.getSolicitudesCartas().subscribe(
       data => {
         this.solicitudes = data;
+        console.log('datos', this.solicitudes);
         this.obtenerNombresEstudiantes();
+        this.obtenerInfoEspecialidades();  // Llama a obtenerInfoEspecialidades aquí
       },
       error => {
         console.error('Error al obtener solicitudes:', error);
@@ -58,6 +61,7 @@ export class SolictudescartaComponent implements OnInit {
   obtenerNombresEmpresas(): void {
     const solicitudesConNombresEmpresas = this.solicitudes.map(solicitud => {
       return this.GestionardocumentacionService.getEmpresaInfo(solicitud.empresa_id);
+
     });
 
     forkJoin(solicitudesConNombresEmpresas).subscribe(
@@ -75,6 +79,31 @@ export class SolictudescartaComponent implements OnInit {
       }
     );
   }
+  obtenerInfoEspecialidades(): void {
+    console.log('Solicitudes:', this.solicitudes);
+    const solicitudesConInfoEspecialidades = this.solicitudes.map(solicitud => {
+      return this.GestionardocumentacionService.getEspecialidadInfo(solicitud.especialidad_id).pipe(
+        catchError(error => {
+          console.error(`Error al obtener información de especialidad para solicitud ${solicitud.id}:`, error);
+          return of(null); // Devuelve un observable vacío en caso de error
+        })
+      );
+    });
+
+    forkJoin(solicitudesConInfoEspecialidades).subscribe(
+      infoEspecialidades => {
+        this.solicitudes.forEach((solicitud, index) => {
+          if (infoEspecialidades[index]) {
+            solicitud.especialidad = infoEspecialidades[index].nombre;
+          }
+        });
+      },
+      error => {
+        console.error('Error al obtener información de especialidades:', error);
+      }
+    );
+  }
+
 
   eliminarSolicitud(solicitud: any): void {
     const confirmacion = window.confirm('¿Estás seguro de que deseas eliminar esta solicitud?');

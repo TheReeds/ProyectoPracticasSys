@@ -40,7 +40,7 @@
                   <tr class="border" [class.bg-gray-100]="odd">
                     <td class="p-2">{{ solicitud.nombreEstudiante }}</td>
                     <td class="p-2">{{ solicitud.nombreEmpresa }}</td>
-                    <td class="p-2">Especialidad X</td>
+                    <td class="p-2">{{ solicitud.especialidad}}</td>
                     <td class="p-2">
                       <a class="cursor-pointer" (click)="mostrarDetalles(solicitud)" title="Ver Detalles">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

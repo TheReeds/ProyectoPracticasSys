@@ -41,5 +41,8 @@ export class GestionardocumentacionService {
   getEmpresaInfo(empresaId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl3}/empresas/${empresaId}`);
   }
+  getEspecialidadInfo(id: number): Observable<any> {
+    return this.http.get(`http://127.0.0.1:8000/api/especialidades/${id}`);
+  }
 
 }
