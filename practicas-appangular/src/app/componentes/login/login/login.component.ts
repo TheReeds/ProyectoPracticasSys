@@ -50,17 +50,23 @@ export class LoginComponent {
         // Llamar al método para manejar el token después del inicio de sesión exitoso
         this.authService.handleLoginSuccess(response);
 
-        this.router.navigate(['/inicio']);
+        // Obtener el rol del usuario
+        const userRole = this.authService.getUserRole();
 
-        // Puedes redirigir a otra página o realizar acciones adicionales aquí
+        // Redirigir a la ruta correspondiente según el rol
+        if (userRole === 'Coordinador') {
+          this.router.navigate(['/inicio']);
+        } else if (userRole === 'Alumno') {
+          this.router.navigate(['/estudiantes/inicio']);
+        } else {
+          // Si no se reconoce el rol, redirigir a una ruta predeterminada
+          console.log('Rol no encontrada, redirigiendo')
+          this.router.navigate(['/inicio']);
+        }
+
+        // Puedes redirigir a otras páginas o realizar acciones adicionales aquí
       },
-      (errorMessage) => {
-        // Manejar el mensaje de error y mostrarlo al usuario
-        console.error('Error:', errorMessage);
-
-        // Aquí puedes mostrar el mensaje de error al usuario, por ejemplo:
-        // this.errorMessage = errorMessage;
-      }
+      // ... Resto del código
     );
 
     // Puedes acceder a los valores del formulario usando form.value
